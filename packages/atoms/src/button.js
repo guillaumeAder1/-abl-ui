@@ -12,10 +12,10 @@ const Wrapper = styled.button`
   border-radius: 5px;
   padding: 10px 20px;
 `;
-const Button = () => {
+const Button = props => {
   const handleClick = () => alert('okokook');
   return (
-    <Wrapper onClick={handleClick} >click me</Wrapper>
+    <Wrapper onClick={handleClick} >{props.text}</Wrapper>
   )
 }
 

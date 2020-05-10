@@ -1,13 +1,13 @@
 import React from 'react';
 import { action } from '@storybook/addon-actions';
-import  Button  from '../src/button';
+import  Button  from 'button';
 
 export default {
   title: '@abl/Button',
   component: Button,
 };
 
-export const basic = () => <Button />;
+export const basic = () => <Button text='hello world'/>;
 
 // export const Emoji = () => (
 //   <Button onClick={action('clicked')}>
