@@ -1,0 +1,17 @@
+{
+  "name": "abl-lib",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "guillaume.ader",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "bootstrap": "lerna bootstrap --use-workspaces"
+  },
+  "devDependencies": {
+    "lerna": "^3.20.2"
+  },
+  "workspaces": [
+    "packages/*"
+  ]  
+}

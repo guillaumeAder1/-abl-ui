@@ -1,0 +1,30 @@
+{
+  "name": "@abl/atoms",
+  "version": "0.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@emotion/core": "^10.0.28",
+    "@emotion/styled": "^10.0.27",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "peerDependencies": {
+    "@emotion/core": "10.x",
+    "@emotion/styled": "10.x",
+    "react": "^16.x",
+    "react-dom": "^16.x"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.6",
+    "@storybook/addon-actions": "^5.3.18",
+    "@storybook/addon-links": "^5.3.18",
+    "@storybook/addons": "^5.3.18",
+    "@storybook/react": "^5.3.18",
+    "babel-loader": "^8.1.0"
+  },
+  "scripts": {
+    "dev": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  }
+}
