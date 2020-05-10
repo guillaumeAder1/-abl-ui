@@ -1,11 +1,10 @@
-import { render, getByText } from "@testing-library/react";
-import React from "react";
-import Button from "button";
+import { render, getByText } from '@testing-library/react';
+import React from 'react';
+import Button from 'button';
 
-describe("Button", () => {
-  test("should display text", () => {
-    const { container } = render(<Button text="We Salute You!" />);
-
-    getByText(container, "We Salute You!");
-  });
+describe('Button', () => {
+	test('should display text', () => {
+		const { container } = render(<Button text='We Salute You!' />);
+		getByText(container, 'We Salute You!');
+	});
 });

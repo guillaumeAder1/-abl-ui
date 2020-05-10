@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from "@emotion/styled";
+import styled from '@emotion/styled';
 
 const Wrapper = styled.button`
   text-transform: uppercase;
@@ -13,10 +13,10 @@ const Wrapper = styled.button`
   padding: 10px 20px;
 `;
 const Button = props => {
-  const handleClick = () => alert('okokook');
-  return (
-    <Wrapper onClick={handleClick} >{props.text}</Wrapper>
-  )
-}
+	const handleClick = () => alert('okokook');
+	return (
+		<Wrapper onClick={handleClick} >{props.text}</Wrapper>
+	);
+};
 
 export default Button;

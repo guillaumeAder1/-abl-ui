@@ -1,10 +1,9 @@
 import React from 'react';
-import { action } from '@storybook/addon-actions';
 import  Button  from 'button';
 
 export default {
-  title: '@abl/Button',
-  component: Button,
+	title: '@abl/Button',
+	component: Button,
 };
 
 export const basic = () => <Button text='hello world'/>;
