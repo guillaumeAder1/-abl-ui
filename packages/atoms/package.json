@@ -3,6 +3,10 @@
   "version": "0.0.0",
   "main": "index.js",
   "license": "MIT",
+  "scripts": {
+    "dev": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
   "dependencies": {
     "@emotion/core": "^10.0.28",
     "@emotion/styled": "^10.0.27",
@@ -17,14 +21,13 @@
   },
   "devDependencies": {
     "@babel/core": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
+    "@babel/preset-react": "^7.9.4",
     "@storybook/addon-actions": "^5.3.18",
     "@storybook/addon-links": "^5.3.18",
     "@storybook/addons": "^5.3.18",
     "@storybook/react": "^5.3.18",
-    "babel-loader": "^8.1.0"
-  },
-  "scripts": {
-    "dev": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "babel-loader": "^8.1.0",
+    "babel-plugin-emotion": "^10.0.33"
   }
 }
