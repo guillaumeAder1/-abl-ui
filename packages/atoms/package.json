@@ -7,7 +7,8 @@
     "dev": "start-storybook -p 6006",
     "test": "jest",
     "lint": "eslint . --ext .js",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "build": "rollup -c"
   },
   "dependencies": {
     "@emotion/core": "^10.0.28",
@@ -37,6 +38,10 @@
     "babel-plugin-module-resolver": "^4.0.0",
     "eslint": "^7.0.0",
     "eslint-plugin-react": "^7.19.0",
-    "jest": "^26.0.1"
+    "jest": "^26.0.1",
+    "rollup": "^2.9.1",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0"
   }
 }
