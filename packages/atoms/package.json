@@ -1,7 +1,7 @@
 {
   "name": "@abl/atoms",
   "version": "0.0.0",
-  "main": "index.js",
+  "main": "lib/index.js",
   "license": "MIT",
   "scripts": {
     "dev": "start-storybook -p 6006",
