@@ -799,4 +799,5 @@ var Button$1 = function Button(_ref) {
 };
 
 exports.Button = Button;
+exports.ButtonSelect = Button$1;
 exports.Select = Button$1;
