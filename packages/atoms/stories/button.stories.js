@@ -2,6 +2,7 @@ import React from 'react';
 import Button from 'components/Button';
 import Select from 'components/Select';
 import ButtonSelect from 'components/Block';
+import Slider from 'components/Slider';
 
 export default {
 	title: '@abl/Basic components',
@@ -21,6 +22,8 @@ export const select = () => (
 	</Select>
 );
 export const buttonSelect = () => <ButtonSelect></ButtonSelect>;
+
+export const slider = () => <Slider/>;
 
 // export const Emoji = () => (
 //   <Button onClick={action('clicked')}>
