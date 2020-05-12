@@ -1,16 +1,11 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { font } from 'style/vars';
+import { font, button } from 'style/vars';
 
 
 const Wrapper = styled.button`
   ${font}
-  padding: 1px 2px;
-  border-color: #333333;
-  background-color: lightgray;
-  :hover {
-    background-color: orange;
-  }
+  ${button}
 `;
 const Button = props => {
 	const handleClick = () => {};
