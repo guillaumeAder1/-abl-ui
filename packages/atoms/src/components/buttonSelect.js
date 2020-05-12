@@ -1,11 +1,29 @@
 import React from 'react';
 import Button from './button';
 import Select from './select';
+import styled from '@emotion/styled';
+import { baseBlock } from 'style/vars';
+
+const Wrapper = styled.div`
+	${baseBlock}
+	width: 100px;
+	height: 200px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	> div {
+		display: flex;
+		justify-content: space-between;
+	}
+`;
 
 const ButtonSelect = () => (
-	<div>
-		<Button text='On'>OKO</Button>
+	<Wrapper>
 		<Select><option>value</option></Select>
-	</div>
+		<div>
+			<Button text='On'>on</Button>
+			<Button text='On'>option</Button>
+		</div>
+	</Wrapper>
 );
 export default ButtonSelect;

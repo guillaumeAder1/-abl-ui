@@ -39,10 +39,19 @@ export const font = css`
 	fontSize: 12,
 	color: '${theme.font.main}',
 `;
-export const button = css`
+export const baseBlock = css`
+	padding: 5px;
 	border: 1px solid ${theme.bg.dark};
+	border-radius: 0px;
 	background-color: ${theme.bg.main};
+`;
+export const button = css`
+	${baseBlock}
+	padding: 2px 3px;
 	:active {
 		background-color: ${theme.primary.main};
+	}
+	:focus {
+		outline: 2px solid ${theme.bg.light};
 	}
 `;

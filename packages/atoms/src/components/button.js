@@ -7,10 +7,10 @@ const Wrapper = styled.button`
   ${font}
   ${button}
 `;
-const Button = props => {
+const Button = ({children, ...props}) => {
 	const handleClick = () => {};
 	return (
-		<Wrapper onClick={handleClick} >{props.text}</Wrapper>
+		<Wrapper onClick={handleClick} >{children}</Wrapper>
 	);
 };
 
