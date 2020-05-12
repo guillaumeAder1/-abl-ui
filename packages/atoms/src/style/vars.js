@@ -24,10 +24,10 @@ export const theme = {
 	bg: {
 		light: gray._200,
 		main: gray._500,
-		dark: gray._900,		
+		dark: gray._600,		
 	},
 	font: {
-		main: gray._900,
+		main: gray._800,
 	},
 	border: {
 		main: gray._900,
