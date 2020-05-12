@@ -12,7 +12,7 @@ export default {
 	},
 };
 
-export const button = () => <Button text='hello world'/>;
+export const button = () => <Button> Hello world </Button>;
 export const select = () => (
 	<Select>
 		<option name='value1'>value1</option>
