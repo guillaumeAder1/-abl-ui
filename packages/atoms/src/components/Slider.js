@@ -3,14 +3,17 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 
+const basePointer = styled.div`
+	width: 0px;
+	height: 0px;
+	border-top: 5px solid transparent;
+	border-bottom: 5px solid transparent;
+	border-right: 10px solid grey;
+	position: absolute;
+`;
+
 const Pointer = ({ top }) => {
-	const Point = styled.div`
-		width: 0px;
-		height: 0px;
-		border-top: 5px solid transparent;
-		border-bottom: 5px solid transparent;
-		border-right: 10px solid grey;
-		position: absolute;
+	const Point = styled(basePointer)`
 		top: ${ top }px;
 	`;
 	return <Point />;
@@ -23,17 +26,11 @@ const Slider = ({min, max, value}) => {
 
 	const ticks = new Array(nbrTick).fill().map((el, i) => (<div key={i} className="tick"></div>));
 	const measures = new Array(nbrMeasure).fill().map((el, i) => <div key={i}>{i}</div>);
-
-
 	const [pointerVal, setPointerVal] = useState(0);
 	
 	const clickHandler = (evt) => {
 		setPointerVal(pointerVal + 10);
 	};
-
-	// const pointer = <div className="pointer"></div>;
-
-	
 
 	return (
 		<React.Fragment>
