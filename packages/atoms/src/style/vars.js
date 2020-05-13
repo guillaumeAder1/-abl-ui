@@ -35,10 +35,11 @@ export const theme = {
 };
 
 export const font = css`
-	fontFamily: 'helvetica, arial',
-	fontSize: 12,
-	color: '${theme.font.main}',
+	font-family: helvetica, arial;
+	font-size: 12px;
+	color: ${theme.font.main};
 `;
+
 export const baseBlock = css`
 	padding: 5px;
 	border: 1px solid ${theme.bg.dark};
