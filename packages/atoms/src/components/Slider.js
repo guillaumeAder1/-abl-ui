@@ -1,8 +1,20 @@
 
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { font } from 'style/vars';
-// import { jsx, css } from '@emotion/core';
+import styled from '@emotion/styled';
+
+const Pointer = ({ top }) => {
+	const Point = styled.div`
+		width: 0px;
+		height: 0px;
+		border-top: 5px solid transparent;
+		border-bottom: 5px solid transparent;
+		border-right: 10px solid grey;
+		position: absolute;
+		top: ${ top }px;
+	`;
+	return <Point />;
+};
 
 const Slider = ({min, max, value}) => {
 
@@ -12,17 +24,24 @@ const Slider = ({min, max, value}) => {
 	const ticks = new Array(nbrTick).fill().map((el, i) => (<div key={i} className="tick"></div>));
 	const measures = new Array(nbrMeasure).fill().map((el, i) => <div key={i}>{i}</div>);
 
-	const [pointerVal, setPointerVal] = useState(value);
+
+	const [pointerVal, setPointerVal] = useState(0);
 	
 	const clickHandler = (evt) => {
-		console.log(evt.clientY);
+		setPointerVal(pointerVal + 10);
 	};
+
+	// const pointer = <div className="pointer"></div>;
+
+	
+
 	return (
 		<React.Fragment>
 			<style>{`
 					.slider {
 						display: flex;
 						height: 130px;
+						position:relative;
 						width: 40px;
 						margin: auto;
 						justify-content: space-between;
@@ -30,14 +49,6 @@ const Slider = ({min, max, value}) => {
 					}
 					.slider:focus {
 						outline: 1px dashed black;
-					}
-					.pointer {
-						width: 0px;
-						height: 0px;
-						border-top: 5px solid transparent;
-						border-bottom: 5px solid transparent;
-						border-right: 10px solid grey;
-						position: relative;
 					}
 					.section {
 						flex: 1 1 35%;
@@ -73,7 +84,6 @@ const Slider = ({min, max, value}) => {
 			<div
 				onClick={evt => { evt.persist(); clickHandler(evt); }}
 				role="form"
-				css={font}
 				tabIndex="0"
 				className="slider">
 				<div className="section">
@@ -81,10 +91,10 @@ const Slider = ({min, max, value}) => {
 					<div className="bar"></div>
 				</div>
 				<div className="scale">
-					<div className="pointer"></div>
+					<Pointer top={pointerVal} />
 					{ ticks }
 				</div>
-				<div css={font} className="section number">
+				<div className="section number">
 					{ measures }
 				</div>
 			</div>
