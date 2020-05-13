@@ -24,7 +24,7 @@ const Slider = ({min, max, value}) => {
 	const nbrTick = 10;
 	const nbrMeasure = 4;
 
-	const ticks = new Array(nbrTick).fill().map((el, i) => (<div key={i} className="tick"></div>));
+	const ticks = new Array(nbrTick).fill().map((el, i) => <div key={i} className="tick"></div>);
 	const measures = new Array(nbrMeasure).fill().map((el, i) => <div key={i}>{i}</div>);
 	const [pointerVal, setPointerVal] = useState(0);
 	
