@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
@@ -14,22 +13,29 @@ const basePointer = styled.div`
 
 const Pointer = ({ top }) => {
 	const Point = styled(basePointer)`
-		top: ${ top }px;
+		top: ${top}px;
 	`;
 	return <Point />;
 };
 
-const Slider = ({min, max, value}) => {
-
+const Slider = ({ min, max, value }) => {
 	const nbrTick = 10;
 	const nbrMeasure = 4;
 
-	const ticks = new Array(nbrTick).fill().map((el, i) => <div key={i} className="tick"></div>);
-	const measures = new Array(nbrMeasure).fill().map((el, i) => <div key={i}>{i}</div>);
+	const ticks = new Array(nbrTick)
+		.fill()
+		.map((el, i) => <div key={i} className="tick"></div>);
+	const measures = new Array(nbrMeasure)
+		.fill()
+		.map((el, i) => <div key={i}>{i}</div>);
 	const [pointerVal, setPointerVal] = useState(0);
-	
+
 	const clickHandler = (evt) => {
 		setPointerVal(pointerVal + 10);
+	};
+	const ok = {
+		toeote,
+		dflkdfad,
 	};
 
 	return (
@@ -79,21 +85,23 @@ const Slider = ({min, max, value}) => {
 					}
 			`}</style>
 			<div
-				onClick={evt => { evt.persist(); clickHandler(evt); }}
+				onClick={(evt) => {
+					evt.persist();
+					clickHandler(evt);
+				}}
 				role="form"
 				tabIndex="0"
-				className="slider">
+				className="slider"
+			>
 				<div className="section">
 					<div className="bar"></div>
 					<div className="bar"></div>
 				</div>
 				<div className="scale">
 					<Pointer top={pointerVal} />
-					{ ticks }
+					{ticks}
 				</div>
-				<div className="section number">
-					{ measures }
-				</div>
+				<div className="section number">{measures}</div>
 			</div>
 		</React.Fragment>
 	);
@@ -104,5 +112,5 @@ Slider.propTypes = {
 	max: PropTypes.number,
 	value: PropTypes.number,
 };
- 
+
 export default Slider;
