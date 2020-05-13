@@ -17,7 +17,7 @@ const Wrapper = styled.div`
 		justify-content: space-between;
 	}
 	.slider{ 
-		background:red;
+		// background:red;
 	}
 `;
 

@@ -4,22 +4,21 @@ import styled from '@emotion/styled';
 import { font } from 'style/vars';
 import { jsx, css } from '@emotion/core';
 
-const paragraph = css`
-  color: turquoise;
-	border-bottom: 1px solid currentColor;
-	cursor: pointer;
-`;
-const Slider = () => {
+const Slider = ({...props}) => {
 	return (
 		<React.Fragment>
 			<style>{`
 					.slider {
 						display: flex;
 						height: 130px;
-						max-width: 40px;
-						border: 1px solid black;
+						width: 40px;
+						margin: auto;
+						// border: 1px solid black;
 						justify-content: space-between;
 						padding: 2px;
+					}
+					.slider:focus {
+						outline: 1px dashed black;
 					}
 					.section {
 						flex: 1 1 35%;
@@ -30,7 +29,7 @@ const Slider = () => {
 					.bar{
 						height: 100%;
 						flex-basis: 47%;
-						background-color:black;
+						background-color: black;
 					}
 					.scale{
 						// flex: 1 1 10%;
@@ -55,10 +54,10 @@ const Slider = () => {
 						text-align: end;
 					}
 			`}</style>
-			<div  className="slider">
+			<div role="form" tabIndex="2" className="slider">
 				<div className="section">
 					<div className="bar"></div>
-					<div className="bar"></div>
+					<div className="bar"></div>	
 				</div>
 				<div className="scale">
 					<div className="tick"></div>

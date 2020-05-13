@@ -1,9 +1,11 @@
-import Button from 'components/button';
-import Select from 'components/select';
-import ButtonSelect from 'components/select';
+import Button from 'components/Button';
+import Select from 'components/Select';
+import Slider from 'components/Slider';
+import Block from 'components/Block';
 
 export {
 	Button,
 	Select,
-	ButtonSelect,
+	Block,
+	Slider,
 };
