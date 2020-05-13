@@ -21,7 +21,11 @@ const Wrapper = styled.div`
 const ButtonSelect = () => (
 	<Wrapper>
 		<Select><option>value</option></Select>
-		<Slider />
+		<Slider
+			min={0}
+			max={100}
+			value={75}
+		/>
 		<div>
 			<Button text='On'>on</Button>
 			<Button text='On'>option</Button>

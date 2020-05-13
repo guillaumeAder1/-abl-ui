@@ -1,10 +1,17 @@
-/** @jsx jsx */
-import React from 'react';
-import styled from '@emotion/styled';
-import { font } from 'style/vars';
-import { jsx, css } from '@emotion/core';
 
-const Slider = ({...props}) => {
+import React from 'react';
+import PropTypes from 'prop-types';
+import { font } from 'style/vars';
+// import { jsx, css } from '@emotion/core';
+
+const Slider = ({min, max, value}) => {
+
+	const nbrTick = 10;
+	const nbrMeasure = 4;
+
+	const ticks = new Array(nbrTick).fill().map((el, i) => (<div key={i} className="tick"></div>));
+	const measures = new Array(nbrMeasure).fill().map((el, i) => <div key={i}>{i}</div>);
+
 	return (
 		<React.Fragment>
 			<style>{`
@@ -56,27 +63,20 @@ const Slider = ({...props}) => {
 					<div className="bar"></div>	
 				</div>
 				<div className="scale">
-					<div className="tick"></div>
-					<div className="tick"></div>
-					<div className="tick"></div>
-					<div className="tick"></div>
-					<div className="tick"></div>
-					<div className="tick"></div>
-					<div className="tick"></div>
-					<div className="tick"></div>
-					<div className="tick"></div>
-					<div className="tick"></div>
+					{ ticks }
 				</div>
 				<div css={font} className="section number">
-					<div className="">100</div>
-					<div className="">75</div>
-					<div className="">50</div>
-					<div className="">25</div>
-					<div className="">0</div>
+					{ measures }
 				</div>
 			</div>
 		</React.Fragment>
 	);
+};
+
+Slider.propTypes = {
+	min: PropTypes.number,
+	max: PropTypes.number,
+	value: PropTypes.number,
 };
  
 export default Slider;
