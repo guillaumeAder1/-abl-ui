@@ -1,15 +1,12 @@
 import React from 'react';
 import Button from 'components/Button';
 import Select from 'components/Select';
-import ButtonSelect from 'components/Block';
-import Slider from 'components/Slider';
 
 export default {
 	title: '@abl/Basic components',
 	component: {
 		Button,
 		Select,
-		ButtonSelect,
 	},
 };
 
@@ -21,14 +18,4 @@ export const select = () => (
 		<option name='value3'>value3</option>
 	</Select>
 );
-export const buttonSelect = () => <ButtonSelect></ButtonSelect>;
 
-export const slider = () => <Slider/>;
-
-// export const Emoji = () => (
-//   <Button onClick={action('clicked')}>
-//     <span role="img" aria-label="so cool">
-//       😀 😎 👍 💯
-//     </span>
-//   </Button>
-// );
