@@ -13,7 +13,6 @@ const Slider = ({...props}) => {
 						height: 130px;
 						width: 40px;
 						margin: auto;
-						// border: 1px solid black;
 						justify-content: space-between;
 						padding: 2px;
 					}
@@ -24,7 +23,6 @@ const Slider = ({...props}) => {
 						flex: 1 1 35%;
 						display: flex;
 						justify-content: space-between;
-						// background: grey;
 					}
 					.bar{
 						height: 100%;
@@ -32,10 +30,8 @@ const Slider = ({...props}) => {
 						background-color: black;
 					}
 					.scale{
-						// flex: 1 1 10%;
 						height: 100%;
 						width: 5px;
-						// background: orange;
 						display: flex;
 						justify-content: space-between;
 						flex-direction: column;
@@ -54,7 +50,7 @@ const Slider = ({...props}) => {
 						text-align: end;
 					}
 			`}</style>
-			<div role="form" tabIndex="2" className="slider">
+			<div role="form" css={font} tabIndex="0" className="slider">
 				<div className="section">
 					<div className="bar"></div>
 					<div className="bar"></div>	
