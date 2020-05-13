@@ -7,6 +7,7 @@ function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'defau
 var React = require('react');
 var React__default = _interopDefault(React);
 var core = require('@emotion/core');
+require('@emotion/styled');
 
 function _objectWithoutPropertiesLoose(source, excluded) {
   if (source == null) return {};
@@ -758,9 +759,9 @@ var baseBlock = /*#__PURE__*/core.css("padding:5px;border:1px solid ", theme.bg.
 var button = /*#__PURE__*/core.css(baseBlock, " padding:2px 3px;:active{background-color:", theme.primary.main, ";}:focus{outline:2px solid ", theme.bg.light, ";};label:button;" + (process.env.NODE_ENV === "production" ? "" : "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInZhcnMuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBK0N5QiIsImZpbGUiOiJ2YXJzLmpzIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgY3NzIH0gZnJvbSAnQGVtb3Rpb24vY29yZSc7XG5cbmNvbnN0IG9yYW5nZSA9IHtcblx0XzMwMDogJyNGRkI1MzQnLFxuXHRfNTAwOiAnI0ZGOUYxQycsXG5cdF84MDA6ICcjQzU2RjE0Jyxcbn07XG5jb25zdCBncmF5ID0ge1xuXHRfMTAwOiAnI0UwRUZGMScsXG5cdF8yMDA6ICcjQzBDRUQ2Jyxcblx0XzUwMDogJyNBMEFFQkEnLFxuXHRfNjAwOiAnIzZmN2Q5MScsXG5cdF84MDA6ICcjMjgyRjQ4Jyxcblx0XzkwMDogJyMxMDEzMkQnLFxufTtcblxuXG5leHBvcnQgY29uc3QgdGhlbWUgPSB7XG5cdHByaW1hcnk6IHtcblx0XHRsaWdodDogb3JhbmdlLl8zMDAsXG5cdFx0bWFpbjogb3JhbmdlLl81MDAsXG5cdFx0ZGFyazogb3JhbmdlLl84MDAsXG5cdH0sXG5cdGJnOiB7XG5cdFx0bGlnaHQ6IGdyYXkuXzIwMCxcblx0XHRtYWluOiBncmF5Ll81MDAsXG5cdFx0ZGFyazogZ3JheS5fNjAwLFx0XHRcblx0fSxcblx0Zm9udDoge1xuXHRcdG1haW46IGdyYXkuXzgwMCxcblx0fSxcblx0Ym9yZGVyOiB7XG5cdFx0bWFpbjogZ3JheS5fOTAwLFxuXHR9XG59O1xuXG5leHBvcnQgY29uc3QgZm9udCA9IGNzc2Bcblx0Zm9udEZhbWlseTogJ2hlbHZldGljYSwgYXJpYWwnLFxuXHRmb250U2l6ZTogMTIsXG5cdGNvbG9yOiAnJHt0aGVtZS5mb250Lm1haW59JyxcbmA7XG5leHBvcnQgY29uc3QgYmFzZUJsb2NrID0gY3NzYFxuXHRwYWRkaW5nOiA1cHg7XG5cdGJvcmRlcjogMXB4IHNvbGlkICR7dGhlbWUuYmcuZGFya307XG5cdGJvcmRlci1yYWRpdXM6IDBweDtcblx0YmFja2dyb3VuZC1jb2xvcjogJHt0aGVtZS5iZy5tYWlufTtcbmA7XG5leHBvcnQgY29uc3QgYnV0dG9uID0gY3NzYFxuXHQke2Jhc2VCbG9ja31cblx0cGFkZGluZzogMnB4IDNweDtcblx0OmFjdGl2ZSB7XG5cdFx0YmFja2dyb3VuZC1jb2xvcjogJHt0aGVtZS5wcmltYXJ5Lm1haW59O1xuXHR9XG5cdDpmb2N1cyB7XG5cdFx0b3V0bGluZTogMnB4IHNvbGlkICR7dGhlbWUuYmcubGlnaHR9O1xuXHR9XG5gO1xuIl19 */"));
 
 var Wrapper = createStyled("button", {
-  target: "eefufqu0",
+  target: "ewlf0ji0",
   label: "Wrapper"
-})(font, " ", button, process.env.NODE_ENV === "production" ? "" : "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImJ1dHRvbi5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFLNkIiLCJmaWxlIjoiYnV0dG9uLmpzIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IFJlYWN0IGZyb20gJ3JlYWN0JztcbmltcG9ydCBzdHlsZWQgZnJvbSAnQGVtb3Rpb24vc3R5bGVkJztcbmltcG9ydCB7IGZvbnQsIGJ1dHRvbiB9IGZyb20gJ3N0eWxlL3ZhcnMnO1xuXG5cbmNvbnN0IFdyYXBwZXIgPSBzdHlsZWQuYnV0dG9uYFxuICAke2ZvbnR9XG4gICR7YnV0dG9ufVxuYDtcbmNvbnN0IEJ1dHRvbiA9ICh7Y2hpbGRyZW4sIC4uLnByb3BzfSkgPT4ge1xuXHRjb25zdCBoYW5kbGVDbGljayA9ICgpID0+IHt9O1xuXHRyZXR1cm4gKFxuXHRcdDxXcmFwcGVyIG9uQ2xpY2s9e2hhbmRsZUNsaWNrfSA+e2NoaWxkcmVufTwvV3JhcHBlcj5cblx0KTtcbn07XG5cbmV4cG9ydCBkZWZhdWx0IEJ1dHRvbjsiXX0= */");
+})(font, " ", button, process.env.NODE_ENV === "production" ? "" : "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkJ1dHRvbi5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFLNkIiLCJmaWxlIjoiQnV0dG9uLmpzIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IFJlYWN0IGZyb20gJ3JlYWN0JztcbmltcG9ydCBzdHlsZWQgZnJvbSAnQGVtb3Rpb24vc3R5bGVkJztcbmltcG9ydCB7IGZvbnQsIGJ1dHRvbiB9IGZyb20gJ3N0eWxlL3ZhcnMnO1xuXG5cbmNvbnN0IFdyYXBwZXIgPSBzdHlsZWQuYnV0dG9uYFxuICAke2ZvbnR9XG4gICR7YnV0dG9ufVxuYDtcbmNvbnN0IEJ1dHRvbiA9ICh7Y2hpbGRyZW4sIC4uLnByb3BzfSkgPT4ge1xuXHRjb25zdCBoYW5kbGVDbGljayA9ICgpID0+IHt9O1xuXHRyZXR1cm4gKFxuXHRcdDxXcmFwcGVyIG9uQ2xpY2s9e2hhbmRsZUNsaWNrfSA+e2NoaWxkcmVufTwvV3JhcHBlcj5cblx0KTtcbn07XG5cbmV4cG9ydCBkZWZhdWx0IEJ1dHRvbjsiXX0= */");
 
 var Button = function Button(_ref) {
   var children = _ref.children,
@@ -774,9 +775,9 @@ var Button = function Button(_ref) {
 };
 
 var Wrapper$1 = createStyled("select", {
-  target: "e1u8cei80",
+  target: "eljvfqn0",
   label: "Wrapper"
-})(font, " ", button, process.env.NODE_ENV === "production" ? "" : "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNlbGVjdC5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFLNkIiLCJmaWxlIjoic2VsZWN0LmpzIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IFJlYWN0IGZyb20gJ3JlYWN0JztcbmltcG9ydCBzdHlsZWQgZnJvbSAnQGVtb3Rpb24vc3R5bGVkJztcbmltcG9ydCB7IGZvbnQsIGJ1dHRvbiB9IGZyb20gJ3N0eWxlL3ZhcnMnO1xuXG5cbmNvbnN0IFdyYXBwZXIgPSBzdHlsZWQuc2VsZWN0YFxuXHQke2ZvbnR9XG5cdCR7YnV0dG9ufVxuYDtcbmNvbnN0IEJ1dHRvbiA9ICh7Y2hpbGRyZW4sIC4uLnByb3BzfSkgPT4ge1xuXHRjb25zb2xlLndhcm4ocHJvcHMpO1xuXHRjb25zdCBoYW5kbGVDbGljayA9ICgpID0+IHt9O1xuXHRyZXR1cm4gKFxuXHRcdDxXcmFwcGVyIG9uQ2xpY2s9e2hhbmRsZUNsaWNrfSA+e2NoaWxkcmVufTwvV3JhcHBlcj5cblx0KTtcbn07XG5cbmV4cG9ydCBkZWZhdWx0IEJ1dHRvbjsiXX0= */");
+})(font, " ", button, process.env.NODE_ENV === "production" ? "" : "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIlNlbGVjdC5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFLNkIiLCJmaWxlIjoiU2VsZWN0LmpzIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IFJlYWN0IGZyb20gJ3JlYWN0JztcbmltcG9ydCBzdHlsZWQgZnJvbSAnQGVtb3Rpb24vc3R5bGVkJztcbmltcG9ydCB7IGZvbnQsIGJ1dHRvbiB9IGZyb20gJ3N0eWxlL3ZhcnMnO1xuXG5cbmNvbnN0IFdyYXBwZXIgPSBzdHlsZWQuc2VsZWN0YFxuXHQke2ZvbnR9XG5cdCR7YnV0dG9ufVxuYDtcbmNvbnN0IEJ1dHRvbiA9ICh7Y2hpbGRyZW4sIC4uLnByb3BzfSkgPT4ge1xuXHRjb25zb2xlLndhcm4ocHJvcHMpO1xuXHRjb25zdCBoYW5kbGVDbGljayA9ICgpID0+IHt9O1xuXHRyZXR1cm4gKFxuXHRcdDxXcmFwcGVyIG9uQ2xpY2s9e2hhbmRsZUNsaWNrfSA+e2NoaWxkcmVufTwvV3JhcHBlcj5cblx0KTtcbn07XG5cbmV4cG9ydCBkZWZhdWx0IEJ1dHRvbjsiXX0= */");
 
 var Button$1 = function Button(_ref) {
   var children = _ref.children,
@@ -791,6 +792,78 @@ var Button$1 = function Button(_ref) {
   }, children);
 };
 
+function _EMOTION_STRINGIFIED_CSS_ERROR__() { return "You have tried to stringify object returned from `css` function. It isn't supposed to be used directly (e.g. as value of the `className` prop), but rather handed to emotion so it can handle it (e.g. as value of `css` prop)."; }
+var paragraph = process.env.NODE_ENV === "production" ? {
+  name: "183ava7-paragraph",
+  styles: "color:turquoise;border-bottom:1px solid currentColor;cursor:pointer;;label:paragraph;"
+} : {
+  name: "183ava7-paragraph",
+  styles: "color:turquoise;border-bottom:1px solid currentColor;cursor:pointer;;label:paragraph;",
+  map: "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIlNsaWRlci5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFNcUIiLCJmaWxlIjoiU2xpZGVyLmpzIiwic291cmNlc0NvbnRlbnQiOlsiLyoqIEBqc3gganN4ICovXG5pbXBvcnQgUmVhY3QgZnJvbSAncmVhY3QnO1xuaW1wb3J0IHN0eWxlZCBmcm9tICdAZW1vdGlvbi9zdHlsZWQnO1xuaW1wb3J0IHsgZm9udCB9IGZyb20gJ3N0eWxlL3ZhcnMnO1xuaW1wb3J0IHsganN4LCBjc3MgfSBmcm9tICdAZW1vdGlvbi9jb3JlJztcblxuY29uc3QgcGFyYWdyYXBoID0gY3NzYFxuICBjb2xvcjogdHVycXVvaXNlO1xuXHRib3JkZXItYm90dG9tOiAxcHggc29saWQgY3VycmVudENvbG9yO1xuXHRjdXJzb3I6IHBvaW50ZXI7XG5gO1xuY29uc3QgU2xpZGVyID0gKCkgPT4ge1xuXHRyZXR1cm4gKFxuXHRcdDxSZWFjdC5GcmFnbWVudD5cblx0XHRcdDxzdHlsZT57YFxuXHRcdFx0XHRcdC5zbGlkZXIge1xuXHRcdFx0XHRcdFx0ZGlzcGxheTogZmxleDtcblx0XHRcdFx0XHRcdGhlaWdodDogMTMwcHg7XG5cdFx0XHRcdFx0XHRtYXgtd2lkdGg6IDQwcHg7XG5cdFx0XHRcdFx0XHRib3JkZXI6IDFweCBzb2xpZCBibGFjaztcblx0XHRcdFx0XHRcdGp1c3RpZnktY29udGVudDogc3BhY2UtYmV0d2Vlbjtcblx0XHRcdFx0XHRcdHBhZGRpbmc6IDJweDtcblx0XHRcdFx0XHR9XG5cdFx0XHRcdFx0LnNlY3Rpb24ge1xuXHRcdFx0XHRcdFx0ZmxleDogMSAxIDM1JTtcblx0XHRcdFx0XHRcdGRpc3BsYXk6IGZsZXg7XG5cdFx0XHRcdFx0XHRqdXN0aWZ5LWNvbnRlbnQ6IHNwYWNlLWJldHdlZW47XG5cdFx0XHRcdFx0XHQvLyBiYWNrZ3JvdW5kOiBncmV5O1xuXHRcdFx0XHRcdH1cblx0XHRcdFx0XHQuYmFye1xuXHRcdFx0XHRcdFx0aGVpZ2h0OiAxMDAlO1xuXHRcdFx0XHRcdFx0ZmxleC1iYXNpczogNDclO1xuXHRcdFx0XHRcdFx0YmFja2dyb3VuZC1jb2xvcjpibGFjaztcblx0XHRcdFx0XHR9XG5cdFx0XHRcdFx0LnNjYWxle1xuXHRcdFx0XHRcdFx0Ly8gZmxleDogMSAxIDEwJTtcblx0XHRcdFx0XHRcdGhlaWdodDogMTAwJTtcblx0XHRcdFx0XHRcdHdpZHRoOiA1cHg7XG5cdFx0XHRcdFx0XHQvLyBiYWNrZ3JvdW5kOiBvcmFuZ2U7XG5cdFx0XHRcdFx0XHRkaXNwbGF5OiBmbGV4O1xuXHRcdFx0XHRcdFx0anVzdGlmeS1jb250ZW50OiBzcGFjZS1iZXR3ZWVuO1xuXHRcdFx0XHRcdFx0ZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcblx0XHRcdFx0XHR9XG5cdFx0XHRcdFx0LnRpY2sge1xuXHRcdFx0XHRcdFx0bWFyZ2luOiAycHg7XG5cdFx0XHRcdFx0XHRoZWlnaHQ6IDFweDtcblx0XHRcdFx0XHRcdHdpZHRoOiAxMDAlO1xuXHRcdFx0XHRcdFx0YmFja2dyb3VuZDogYmxhY2s7XG5cdFx0XHRcdFx0fVxuXHRcdFx0XHRcdC5udW1iZXJ7XG5cdFx0XHRcdFx0XHRmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xuXHRcdFx0XHRcdFx0Zm9udC1zaXplOiAxMHB4O1xuXHRcdFx0XHRcdFx0bGluZS1oZWlnaHQ6IDEwcHg7XG5cdFx0XHRcdFx0XHRmb250LWZhbWlseTogaGVsdmV0aWNhO1xuXHRcdFx0XHRcdFx0dGV4dC1hbGlnbjogZW5kO1xuXHRcdFx0XHRcdH1cblx0XHRcdGB9PC9zdHlsZT5cblx0XHRcdDxkaXYgIGNsYXNzTmFtZT1cInNsaWRlclwiPlxuXHRcdFx0XHQ8ZGl2IGNsYXNzTmFtZT1cInNlY3Rpb25cIj5cblx0XHRcdFx0XHQ8ZGl2IGNsYXNzTmFtZT1cImJhclwiPjwvZGl2PlxuXHRcdFx0XHRcdDxkaXYgY2xhc3NOYW1lPVwiYmFyXCI+PC9kaXY+XG5cdFx0XHRcdDwvZGl2PlxuXHRcdFx0XHQ8ZGl2IGNsYXNzTmFtZT1cInNjYWxlXCI+XG5cdFx0XHRcdFx0PGRpdiBjbGFzc05hbWU9XCJ0aWNrXCI+PC9kaXY+XG5cdFx0XHRcdFx0PGRpdiBjbGFzc05hbWU9XCJ0aWNrXCI+PC9kaXY+XG5cdFx0XHRcdFx0PGRpdiBjbGFzc05hbWU9XCJ0aWNrXCI+PC9kaXY+XG5cdFx0XHRcdFx0PGRpdiBjbGFzc05hbWU9XCJ0aWNrXCI+PC9kaXY+XG5cdFx0XHRcdFx0PGRpdiBjbGFzc05hbWU9XCJ0aWNrXCI+PC9kaXY+XG5cdFx0XHRcdFx0PGRpdiBjbGFzc05hbWU9XCJ0aWNrXCI+PC9kaXY+XG5cdFx0XHRcdFx0PGRpdiBjbGFzc05hbWU9XCJ0aWNrXCI+PC9kaXY+XG5cdFx0XHRcdFx0PGRpdiBjbGFzc05hbWU9XCJ0aWNrXCI+PC9kaXY+XG5cdFx0XHRcdFx0PGRpdiBjbGFzc05hbWU9XCJ0aWNrXCI+PC9kaXY+XG5cdFx0XHRcdFx0PGRpdiBjbGFzc05hbWU9XCJ0aWNrXCI+PC9kaXY+XG5cdFx0XHRcdDwvZGl2PlxuXHRcdFx0XHQ8ZGl2IGNzcz17Zm9udH0gY2xhc3NOYW1lPVwic2VjdGlvbiBudW1iZXJcIj5cblx0XHRcdFx0XHQ8ZGl2IGNsYXNzTmFtZT1cIlwiPjEwMDwvZGl2PlxuXHRcdFx0XHRcdDxkaXYgY2xhc3NOYW1lPVwiXCI+NzU8L2Rpdj5cblx0XHRcdFx0XHQ8ZGl2IGNsYXNzTmFtZT1cIlwiPjUwPC9kaXY+XG5cdFx0XHRcdFx0PGRpdiBjbGFzc05hbWU9XCJcIj4yNTwvZGl2PlxuXHRcdFx0XHRcdDxkaXYgY2xhc3NOYW1lPVwiXCI+MDwvZGl2PlxuXHRcdFx0XHQ8L2Rpdj5cblx0XHRcdDwvZGl2PlxuXHRcdDwvUmVhY3QuRnJhZ21lbnQ+XG5cdCk7XG59O1xuIFxuZXhwb3J0IGRlZmF1bHQgU2xpZGVyOyJdfQ== */",
+  toString: _EMOTION_STRINGIFIED_CSS_ERROR__
+};
+
+var Slider = function Slider() {
+  return core.jsx(React__default.Fragment, null, core.jsx("style", null, "\n\t\t\t\t\t.slider {\n\t\t\t\t\t\tdisplay: flex;\n\t\t\t\t\t\theight: 130px;\n\t\t\t\t\t\tmax-width: 40px;\n\t\t\t\t\t\tborder: 1px solid black;\n\t\t\t\t\t\tjustify-content: space-between;\n\t\t\t\t\t\tpadding: 2px;\n\t\t\t\t\t}\n\t\t\t\t\t.section {\n\t\t\t\t\t\tflex: 1 1 35%;\n\t\t\t\t\t\tdisplay: flex;\n\t\t\t\t\t\tjustify-content: space-between;\n\t\t\t\t\t\t// background: grey;\n\t\t\t\t\t}\n\t\t\t\t\t.bar{\n\t\t\t\t\t\theight: 100%;\n\t\t\t\t\t\tflex-basis: 47%;\n\t\t\t\t\t\tbackground-color:black;\n\t\t\t\t\t}\n\t\t\t\t\t.scale{\n\t\t\t\t\t\t// flex: 1 1 10%;\n\t\t\t\t\t\theight: 100%;\n\t\t\t\t\t\twidth: 5px;\n\t\t\t\t\t\t// background: orange;\n\t\t\t\t\t\tdisplay: flex;\n\t\t\t\t\t\tjustify-content: space-between;\n\t\t\t\t\t\tflex-direction: column;\n\t\t\t\t\t}\n\t\t\t\t\t.tick {\n\t\t\t\t\t\tmargin: 2px;\n\t\t\t\t\t\theight: 1px;\n\t\t\t\t\t\twidth: 100%;\n\t\t\t\t\t\tbackground: black;\n\t\t\t\t\t}\n\t\t\t\t\t.number{\n\t\t\t\t\t\tflex-direction: column;\n\t\t\t\t\t\tfont-size: 10px;\n\t\t\t\t\t\tline-height: 10px;\n\t\t\t\t\t\tfont-family: helvetica;\n\t\t\t\t\t\ttext-align: end;\n\t\t\t\t\t}\n\t\t\t"), core.jsx("div", {
+    className: "slider"
+  }, core.jsx("div", {
+    className: "section"
+  }, core.jsx("div", {
+    className: "bar"
+  }), core.jsx("div", {
+    className: "bar"
+  })), core.jsx("div", {
+    className: "scale"
+  }, core.jsx("div", {
+    className: "tick"
+  }), core.jsx("div", {
+    className: "tick"
+  }), core.jsx("div", {
+    className: "tick"
+  }), core.jsx("div", {
+    className: "tick"
+  }), core.jsx("div", {
+    className: "tick"
+  }), core.jsx("div", {
+    className: "tick"
+  }), core.jsx("div", {
+    className: "tick"
+  }), core.jsx("div", {
+    className: "tick"
+  }), core.jsx("div", {
+    className: "tick"
+  }), core.jsx("div", {
+    className: "tick"
+  })), core.jsx("div", {
+    css: font,
+    className: "section number"
+  }, core.jsx("div", {
+    className: ""
+  }, "100"), core.jsx("div", {
+    className: ""
+  }, "75"), core.jsx("div", {
+    className: ""
+  }, "50"), core.jsx("div", {
+    className: ""
+  }, "25"), core.jsx("div", {
+    className: ""
+  }, "0"))));
+};
+
+var Wrapper$2 = createStyled("div", {
+  target: "e14hw9va0",
+  label: "Wrapper"
+})(baseBlock, " width:100px;height:200px;display:flex;flex-direction:column;justify-content:space-between;> div{display:flex;justify-content:space-between;}.slider{background:red;}" + (process.env.NODE_ENV === "production" ? "" : "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkJsb2NrLmpzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQU8wQiIsImZpbGUiOiJCbG9jay5qcyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBSZWFjdCBmcm9tICdyZWFjdCc7XG5pbXBvcnQgQnV0dG9uIGZyb20gJy4vQnV0dG9uJztcbmltcG9ydCBTZWxlY3QgZnJvbSAnLi9TZWxlY3QnO1xuaW1wb3J0IFNsaWRlciBmcm9tICcuL1NsaWRlcic7XG5pbXBvcnQgc3R5bGVkIGZyb20gJ0BlbW90aW9uL3N0eWxlZCc7XG5pbXBvcnQgeyBiYXNlQmxvY2sgfSBmcm9tICdzdHlsZS92YXJzJztcblxuY29uc3QgV3JhcHBlciA9IHN0eWxlZC5kaXZgXG5cdCR7YmFzZUJsb2NrfVxuXHR3aWR0aDogMTAwcHg7XG5cdGhlaWdodDogMjAwcHg7XG5cdGRpc3BsYXk6IGZsZXg7XG5cdGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XG5cdGp1c3RpZnktY29udGVudDogc3BhY2UtYmV0d2Vlbjtcblx0PiBkaXYge1xuXHRcdGRpc3BsYXk6IGZsZXg7XG5cdFx0anVzdGlmeS1jb250ZW50OiBzcGFjZS1iZXR3ZWVuO1xuXHR9XG5cdC5zbGlkZXJ7IFxuXHRcdGJhY2tncm91bmQ6cmVkO1xuXHR9XG5gO1xuXG5jb25zdCBCdXR0b25TZWxlY3QgPSAoKSA9PiAoXG5cdDxXcmFwcGVyPlxuXHRcdDxTZWxlY3Q+PG9wdGlvbj52YWx1ZTwvb3B0aW9uPjwvU2VsZWN0PlxuXHRcdDxTbGlkZXIgLz5cblx0XHQ8ZGl2PlxuXHRcdFx0PEJ1dHRvbiB0ZXh0PSdPbic+b248L0J1dHRvbj5cblx0XHRcdDxCdXR0b24gdGV4dD0nT24nPm9wdGlvbjwvQnV0dG9uPlxuXHRcdDwvZGl2PlxuXHQ8L1dyYXBwZXI+XG4pO1xuZXhwb3J0IGRlZmF1bHQgQnV0dG9uU2VsZWN0OyJdfQ== */"));
+
+var ButtonSelect = function ButtonSelect() {
+  return /*#__PURE__*/React__default.createElement(Wrapper$2, null, /*#__PURE__*/React__default.createElement(Button$1, null, /*#__PURE__*/React__default.createElement("option", null, "value")), /*#__PURE__*/React__default.createElement(Slider, null), /*#__PURE__*/React__default.createElement("div", null, /*#__PURE__*/React__default.createElement(Button, {
+    text: "On"
+  }, "on"), /*#__PURE__*/React__default.createElement(Button, {
+    text: "On"
+  }, "option")));
+};
+
+exports.Block = ButtonSelect;
 exports.Button = Button;
-exports.ButtonSelect = Button$1;
 exports.Select = Button$1;
+exports.Slider = Slider;
