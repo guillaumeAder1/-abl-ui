@@ -11,11 +11,11 @@ const basePointer = styled.div`
 	position: absolute;
 `;
 
-const Pointer = ({ top }) => {
+const Pointer = ({ top, ...props }) => {
 	const Point = styled(basePointer)`
 		top: ${top}px;
 	`;
-	return <Point />;
+	return <Point {...props} />;
 };
 
 const Slider = ({ min, max, value }) => {
@@ -29,13 +29,24 @@ const Slider = ({ min, max, value }) => {
 		.fill()
 		.map((el, i) => <div key={i}>{i}</div>);
 	const [pointerVal, setPointerVal] = useState(0);
+	const [isPressed, setIsPressed] = useState(false);
 
 	const clickHandler = (evt) => {
 		setPointerVal(pointerVal + 10);
 	};
-	const ok = {
-		toeote,
-		dflkdfad,
+	const onDragStart = (evt) => {
+		console.warn('start');
+		setIsPressed(!isPressed);
+	};
+	const onDragEnd = (evt) => {
+		console.warn('end');
+		setIsPressed(!isPressed);
+	};
+	const updateCusor = (evt) => {
+		if (isPressed) {
+			console.log(evt);
+			setPointerVal(evt.clientY);
+		}
 	};
 
 	return (
@@ -88,6 +99,12 @@ const Slider = ({ min, max, value }) => {
 				onClick={(evt) => {
 					evt.persist();
 					clickHandler(evt);
+				}}
+				onMouseDown={onDragStart}
+				onMouseUp={onDragEnd}
+				onMouseMove={(evt) => {
+					evt.persist();
+					updateCusor(evt);
 				}}
 				role="form"
 				tabIndex="0"
