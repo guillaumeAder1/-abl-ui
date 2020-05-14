@@ -13,9 +13,8 @@ export default {
 export const button = () => <Button> Hello world </Button>;
 export const select = () => (
 	<Select>
-		<option name='value1'>value1</option>
-		<option name='value2'>value2</option>
-		<option name='value3'>value3</option>
+		<option name="value1">value1</option>
+		<option name="value2">value2</option>
+		<option name="value3">value3</option>
 	</Select>
 );
-
