@@ -1,24 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import styled from '@emotion/styled';
-
-const POINTER_HEIGHT = 10;
-
-const basePointer = styled.div`
-	width: 0px;
-	height: 0px;
-	border-top: 5px solid transparent;
-	border-bottom: 5px solid transparent;
-	border-right: ${POINTER_HEIGHT}px solid grey;
-	position: absolute;
-`;
-
-const Pointer = ({ top, ...props }) => {
-	const Point = styled(basePointer)`
-		top: ${top}px;
-	`;
-	return <Point {...props} />;
-};
+import Pointer from './Pointer';
+import { POINTER_HEIGHT } from './utils';
 
 const Slider = ({ min, max, value }) => {
 	const nbrTick = 10;
@@ -90,7 +73,11 @@ const Slider = ({ min, max, value }) => {
 			`}</style>
 			<div
 				onMouseDown={() => setIsPressed(true)}
-				onMouseUp={() => setIsPressed(false)}
+				onMouseUp={(evt) => {
+					evt.persist();
+					updateCusor(evt);
+					setIsPressed(false);
+				}}
 				onMouseMove={(evt) => {
 					evt.persist();
 					updateCusor(evt);

@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from './Button';
 import Select from './Select';
-import Slider from './Slider';
+import { Slider } from './VolumeSlider';
 import styled from '@emotion/styled';
 import { baseBlock } from 'style/vars';
 
@@ -20,15 +20,13 @@ const Wrapper = styled.div`
 
 const ButtonSelect = () => (
 	<Wrapper>
-		<Select><option>value</option></Select>
-		<Slider
-			min={0}
-			max={100}
-			value={75}
-		/>
+		<Select>
+			<option>value</option>
+		</Select>
+		<Slider min={0} max={100} value={75} />
 		<div>
-			<Button text='On'>on</Button>
-			<Button text='On'>option</Button>
+			<Button text="On">on</Button>
+			<Button text="On">option</Button>
 		</div>
 	</Wrapper>
 );
