@@ -3,6 +3,51 @@ import PropTypes from 'prop-types';
 import Pointer from './Pointer';
 import { POINTER_HEIGHT } from './utils';
 
+const style = `
+	.slider {
+		display: flex;
+		height: 130px;
+		position:relative;
+		width: 40px;
+		margin: auto;
+		justify-content: space-between;
+		padding: 2px;
+	}
+	.slider:focus {
+		outline: 1px dashed black;
+	}
+	.section {
+		flex: 1 1 35%;
+		display: flex;
+		justify-content: space-between;
+	}
+	.bar{
+		height: 100%;
+		flex-basis: 47%;
+		background-color: black;
+	}
+	.scale{
+		height: 100%;
+		width: 5px;
+		display: flex;
+		justify-content: space-between;
+		flex-direction: column;
+	}
+	.tick {
+		margin: 2px;
+		height: 1px;
+		width: 100%;
+		background: black;
+	}
+	.number{
+		flex-direction: column;
+		font-size: 10px;
+		line-height: 10px;
+		font-family: helvetica;
+		text-align: end;
+	}
+`;
+
 const Slider = ({ min, max, value }) => {
 	const nbrTick = 10;
 	const nbrMeasure = 4;
@@ -27,50 +72,7 @@ const Slider = ({ min, max, value }) => {
 
 	return (
 		<React.Fragment>
-			<style>{`
-					.slider {
-						display: flex;
-						height: 130px;
-						position:relative;
-						width: 40px;
-						margin: auto;
-						justify-content: space-between;
-						padding: 2px;
-					}
-					.slider:focus {
-						outline: 1px dashed black;
-					}
-					.section {
-						flex: 1 1 35%;
-						display: flex;
-						justify-content: space-between;
-					}
-					.bar{
-						height: 100%;
-						flex-basis: 47%;
-						background-color: black;
-					}
-					.scale{
-						height: 100%;
-						width: 5px;
-						display: flex;
-						justify-content: space-between;
-						flex-direction: column;
-					}
-					.tick {
-						margin: 2px;
-						height: 1px;
-						width: 100%;
-						background: black;
-					}
-					.number{
-						flex-direction: column;
-						font-size: 10px;
-						line-height: 10px;
-						font-family: helvetica;
-						text-align: end;
-					}
-			`}</style>
+			<style>{style}</style>
 			<div
 				onMouseDown={() => setIsPressed(true)}
 				onMouseUp={(evt) => {
