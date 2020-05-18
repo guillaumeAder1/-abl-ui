@@ -2,12 +2,14 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 
+const POINTER_HEIGHT = 10;
+
 const basePointer = styled.div`
 	width: 0px;
 	height: 0px;
 	border-top: 5px solid transparent;
 	border-bottom: 5px solid transparent;
-	border-right: 10px solid grey;
+	border-right: ${POINTER_HEIGHT}px solid grey;
 	position: absolute;
 `;
 
@@ -32,22 +34,17 @@ const Slider = ({ min, max, value }) => {
 	const [pointerVal, setPointerVal] = useState(0);
 	const [isPressed, setIsPressed] = useState(false);
 
-	const clickHandler = (evt) => {
-		// setIsPressed(!isPressed);
-		// setPointerVal(pointerVal + 10);
-	};
 	const onDragStart = (evt) => {
-		console.warn('start');
 		setIsPressed(true);
 	};
 	const onDragEnd = (evt) => {
-		console.warn('end');
 		setIsPressed(false);
 	};
 	const updateCusor = (evt) => {
 		if (isPressed) {
-			console.log(evt);
-			setPointerVal(evt.clientY - evt.currentTarget.offsetTop);
+			const posY = evt.clientY - evt.currentTarget.offsetTop;
+			posY <= evt.currentTarget.clientHeight - POINTER_HEIGHT &&
+				setPointerVal(posY);
 		}
 	};
 
@@ -127,5 +124,6 @@ Slider.propTypes = {
 	max: PropTypes.number,
 	value: PropTypes.number,
 };
+Slider.defaultProps = {};
 
 export default Slider;
