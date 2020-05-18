@@ -34,12 +34,6 @@ const Slider = ({ min, max, value }) => {
 	const [pointerVal, setPointerVal] = useState(0);
 	const [isPressed, setIsPressed] = useState(false);
 
-	const onDragStart = (evt) => {
-		setIsPressed(true);
-	};
-	const onDragEnd = (evt) => {
-		setIsPressed(false);
-	};
 	const updateCusor = (evt) => {
 		if (isPressed) {
 			const posY = evt.clientY - evt.currentTarget.offsetTop;
@@ -95,8 +89,8 @@ const Slider = ({ min, max, value }) => {
 					}
 			`}</style>
 			<div
-				onMouseDown={onDragStart}
-				onMouseUp={onDragEnd}
+				onMouseDown={() => setIsPressed(true)}
+				onMouseUp={() => setIsPressed(false)}
 				onMouseMove={(evt) => {
 					evt.persist();
 					updateCusor(evt);
