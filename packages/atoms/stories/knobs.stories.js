@@ -8,5 +8,9 @@ export default {
 	},
 };
 
-export const slider = () => <Slider />;
-
+export const slider = () => (
+	<div>
+		<h1>Slider</h1>
+		<Slider />
+	</div>
+);

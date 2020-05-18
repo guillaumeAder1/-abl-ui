@@ -8,5 +8,9 @@ export default {
 	},
 };
 
-export const block = () => <Block></Block>;
-
+export const block = () => (
+	<div>
+		<h1>Slider block</h1>
+		<Block />
+	</div>
+);
