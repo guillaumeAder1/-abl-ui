@@ -28,24 +28,26 @@ const Slider = ({ min, max, value }) => {
 	const measures = new Array(nbrMeasure)
 		.fill()
 		.map((el, i) => <div key={i}>{i}</div>);
+
 	const [pointerVal, setPointerVal] = useState(0);
 	const [isPressed, setIsPressed] = useState(false);
 
 	const clickHandler = (evt) => {
-		setPointerVal(pointerVal + 10);
+		// setIsPressed(!isPressed);
+		// setPointerVal(pointerVal + 10);
 	};
 	const onDragStart = (evt) => {
 		console.warn('start');
-		setIsPressed(!isPressed);
+		setIsPressed(true);
 	};
 	const onDragEnd = (evt) => {
 		console.warn('end');
-		setIsPressed(!isPressed);
+		setIsPressed(false);
 	};
 	const updateCusor = (evt) => {
 		if (isPressed) {
 			console.log(evt);
-			setPointerVal(evt.clientY);
+			setPointerVal(evt.clientY - evt.currentTarget.offsetTop);
 		}
 	};
 
@@ -96,17 +98,13 @@ const Slider = ({ min, max, value }) => {
 					}
 			`}</style>
 			<div
-				onClick={(evt) => {
-					evt.persist();
-					clickHandler(evt);
-				}}
 				onMouseDown={onDragStart}
 				onMouseUp={onDragEnd}
 				onMouseMove={(evt) => {
 					evt.persist();
 					updateCusor(evt);
 				}}
-				role="form"
+				role="slider"
 				tabIndex="0"
 				className="slider"
 			>
