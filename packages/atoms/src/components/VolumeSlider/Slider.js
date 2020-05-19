@@ -53,14 +53,12 @@ const style = `
 	}
 `;
 
-const Slider = ({ min, max, value, nbrTick, nbrMeasures, ...props }) => {
+const Slider = ({ min, max, value, nbrTick, measures, ...props }) => {
 	const ticks = new Array(nbrTick).fill().map((el, i) => {
-		const type = i % 2 === 0 ? 'long' : 'short';
+		const type = i % 3 === 0 ? 'long' : 'short';
 		return <div key={i} className={`tick ${type}`}></div>;
 	});
-	const measures = new Array(nbrMeasures)
-		.fill()
-		.map((el, i) => <div key={i}>{i}</div>);
+	const measuresList = measures.map((el, i) => <div key={i}>{el}</div>);
 
 	const [pointerVal, setPointerVal] = useState(0);
 	const [isPressed, setIsPressed] = useState(false);
@@ -101,7 +99,7 @@ const Slider = ({ min, max, value, nbrTick, nbrMeasures, ...props }) => {
 					<Pointer top={pointerVal} />
 					{ticks}
 				</div>
-				<div className="section number">{measures}</div>
+				<div className="section number">{measuresList}</div>
 			</div>
 		</React.Fragment>
 	);
@@ -112,11 +110,11 @@ Slider.propTypes = {
 	max: PropTypes.number,
 	value: PropTypes.number,
 	nbrTick: PropTypes.number,
-	nbrMeasures: PropTypes.number,
+	measures: PropTypes.array,
 };
 Slider.defaultProps = {
 	nbrTick: 5,
-	nbrMeasures: 5,
+	measures: [100, 0],
 };
 
 export default Slider;
