@@ -36,8 +36,13 @@ const style = `
 	.tick {
 		margin: 2px;
 		height: 1px;
-		width: 100%;
 		background: black;
+	}
+	.tick.short{
+		width: 60%;
+	}
+	.tick.long{
+		width: 100%;
 	}
 	.number{
 		flex-direction: column;
@@ -48,14 +53,15 @@ const style = `
 	}
 `;
 
-const Slider = ({ min, max, value }) => {
-	const nbrTick = 10;
-	const nbrMeasure = 4;
+const Slider = ({ min, max, value, nbrTick, nbrMeasures, ...props }) => {
+	// const nbrTick = 10;
+	// const nbrMeasures = 4;
 
-	const ticks = new Array(nbrTick)
-		.fill()
-		.map((el, i) => <div key={i} className="tick"></div>);
-	const measures = new Array(nbrMeasure)
+	const ticks = new Array(nbrTick).fill().map((el, i) => {
+		const type = i % 2 === 0 ? 'long' : 'short';
+		return <div key={i} className={`tick ${type}`}></div>;
+	});
+	const measures = new Array(nbrMeasures)
 		.fill()
 		.map((el, i) => <div key={i}>{i}</div>);
 
@@ -87,6 +93,8 @@ const Slider = ({ min, max, value }) => {
 				role="slider"
 				tabIndex="0"
 				className="slider"
+				aria-label="slider"
+				{...props}
 			>
 				<div className="section">
 					<div className="bar"></div>
@@ -106,7 +114,12 @@ Slider.propTypes = {
 	min: PropTypes.number,
 	max: PropTypes.number,
 	value: PropTypes.number,
+	nbrTick: PropTypes.number,
+	nbrMeasures: PropTypes.number,
 };
-Slider.defaultProps = {};
+Slider.defaultProps = {
+	nbrTick: 5,
+	nbrMeasures: 5,
+};
 
 export default Slider;
