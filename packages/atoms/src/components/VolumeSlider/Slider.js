@@ -65,21 +65,14 @@ const Slider = ({ min, max, value, nbrTick, nbrMeasures, ...props }) => {
 		.fill()
 		.map((el, i) => <div key={i}>{i}</div>);
 
-	// const [pointerVal, setPointerVal] = useState(0);
-	// const [isPressed, setIsPressed] = useState(false);
-
-	const [state, setState] = useState({
-		isPressed: false,
-		pointerVal: 0,
-	});
+	const [pointerVal, setPointerVal] = useState(0);
+	const [isPressed, setIsPressed] = useState(false);
 
 	const updateCusor = (evt) => {
-		if (state.isPressed) {
+		if (isPressed) {
 			const posY = evt.clientY - evt.currentTarget.offsetTop;
-			if (posY <= evt.currentTarget.clientHeight - POINTER_HEIGHT) {
-				// setPointerVal(posY);
-				setState({ ...state, pointerVal: posY });
-			}
+			posY <= evt.currentTarget.clientHeight - POINTER_HEIGHT &&
+				setPointerVal(posY);
 		}
 	};
 
@@ -87,12 +80,11 @@ const Slider = ({ min, max, value, nbrTick, nbrMeasures, ...props }) => {
 		<React.Fragment>
 			<style>{style}</style>
 			<div
-				onMouseDown={() => setState({ ...state, isPressed: true })}
+				onMouseDown={() => setIsPressed(true)}
 				onMouseUp={(evt) => {
 					evt.persist();
 					updateCusor(evt);
-					// setIsPressed(false);
-					setState({ ...state, isPressed: false });
+					setIsPressed(false);
 				}}
 				onMouseMove={(evt) => {
 					evt.persist();
@@ -109,7 +101,7 @@ const Slider = ({ min, max, value, nbrTick, nbrMeasures, ...props }) => {
 					<div className="bar"></div>
 				</div>
 				<div className="scale">
-					<Pointer top={state.pointerVal} />
+					<Pointer top={pointerVal} />
 					{ticks}
 				</div>
 				<div className="section number">{measures}</div>
