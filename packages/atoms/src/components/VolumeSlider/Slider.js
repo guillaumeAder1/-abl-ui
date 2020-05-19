@@ -54,9 +54,6 @@ const style = `
 `;
 
 const Slider = ({ min, max, value, nbrTick, nbrMeasures, ...props }) => {
-	// const nbrTick = 10;
-	// const nbrMeasures = 4;
-
 	const ticks = new Array(nbrTick).fill().map((el, i) => {
 		const type = i % 2 === 0 ? 'long' : 'short';
 		return <div key={i} className={`tick ${type}`}></div>;
