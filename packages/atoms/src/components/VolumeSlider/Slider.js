@@ -94,6 +94,9 @@ const Slider = ({ min, max, value, nbrTick, measures, onChange, ...props }) => {
 				tabIndex="0"
 				className="slider"
 				aria-label="slider"
+				aria-valuenow={sliderValue}
+				aria-valuemin={min}
+				aria-valuemax={max}
 				{...props}
 			>
 				<div className="section">
