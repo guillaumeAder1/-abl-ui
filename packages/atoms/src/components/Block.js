@@ -23,7 +23,14 @@ const ButtonSelect = () => (
 		<Select>
 			<option>value</option>
 		</Select>
-		<Slider min={0} max={100} value={75} nbrTick={15} measures={[0, 50, 100]} />
+		<Slider
+			min={0}
+			max={100}
+			value={75}
+			nbrTick={15}
+			measures={[0, 50, 100]}
+			onChange={(val) => console.log(val)}
+		/>
 		<div>
 			<Button text="On">on</Button>
 			<Button text="On">option</Button>

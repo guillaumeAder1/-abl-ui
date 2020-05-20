@@ -53,7 +53,7 @@ const style = `
 	}
 `;
 
-const Slider = ({ min, max, value, nbrTick, measures, ...props }) => {
+const Slider = ({ min, max, value, nbrTick, measures, onChange, ...props }) => {
 	const ticks = new Array(nbrTick).fill().map((el, i) => {
 		const type = i % 3 === 0 ? 'long' : 'short';
 		return <div key={i} className={`tick ${type}`}></div>;
@@ -84,6 +84,7 @@ const Slider = ({ min, max, value, nbrTick, measures, ...props }) => {
 					evt.persist();
 					updateCusor(evt);
 					setIsPressed(false);
+					onChange && onChange(sliderValue);
 				}}
 				onMouseMove={(evt) => {
 					evt.persist();
