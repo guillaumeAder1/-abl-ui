@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Pointer from './Pointer';
-import { POINTER_HEIGHT } from './utils';
+import { POINTER_HEIGHT, SLIDER_HEIGHT, pixelToValue } from './utils';
 
 const style = `
 	.slider {
 		display: flex;
-		height: 130px;
+		height: ${SLIDER_HEIGHT}px;
 		position:relative;
 		width: 40px;
 		margin: auto;
@@ -62,6 +62,7 @@ const Slider = ({ min, max, value, nbrTick, measures, ...props }) => {
 
 	const [pointerVal, setPointerVal] = useState(0);
 	const [isPressed, setIsPressed] = useState(false);
+	const [sliderValue, setSliderValue] = useState(value);
 
 	const updateCusor = (evt) => {
 		if (isPressed) {
@@ -70,6 +71,9 @@ const Slider = ({ min, max, value, nbrTick, measures, ...props }) => {
 				setPointerVal(posY);
 		}
 	};
+	useEffect(() => {
+		setSliderValue(pixelToValue(pointerVal, SLIDER_HEIGHT, max));
+	}, [pointerVal]);
 
 	return (
 		<React.Fragment>
@@ -113,6 +117,9 @@ Slider.propTypes = {
 	measures: PropTypes.array,
 };
 Slider.defaultProps = {
+	min: 0,
+	max: 100,
+	value: 90,
 	nbrTick: 5,
 	measures: [100, 0],
 };
