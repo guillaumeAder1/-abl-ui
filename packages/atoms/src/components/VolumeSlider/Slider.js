@@ -14,11 +14,13 @@ const style = `
 	}
 	.slider:focus {
 		outline: 1px dashed black;
+		padding: 0 5px;
 	}
 	.section {
 		flex: 1 1 35%;
 		display: flex;
 		justify-content: space-between;
+		margin: ${POINTER_HEIGHT / 2}px 0; 
 	}
 	.bar{
 		height: 100%;
@@ -26,11 +28,12 @@ const style = `
 		background-color: black;
 	}
 	.scale{
-		height: 100%;
 		width: 5px;
 		display: flex;
 		justify-content: space-between;
 		flex-direction: column;
+		margin: ${POINTER_HEIGHT / 2}px 0; 
+
 	}
 	.tick {
 		margin-left: 2px;
