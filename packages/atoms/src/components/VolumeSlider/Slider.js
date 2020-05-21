@@ -67,12 +67,14 @@ const Slider = ({ min, max, value, nbrTick, measures, onChange, ...props }) => {
 	const updateCusor = (evt) => {
 		if (isPressed) {
 			const posY = evt.clientY - evt.currentTarget.offsetTop;
-			posY <= evt.currentTarget.clientHeight - POINTER_HEIGHT &&
+			if (posY <= evt.currentTarget.clientHeight - POINTER_HEIGHT) {
 				setPointerVal(posY);
+			}
 		}
 	};
 	useEffect(() => {
-		setSliderValue(pixelToValue(pointerVal, SLIDER_HEIGHT, max));
+		const value = pixelToValue(pointerVal, SLIDER_HEIGHT, max);
+		setSliderValue(value);
 	}, [pointerVal]);
 
 	return (
