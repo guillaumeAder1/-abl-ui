@@ -5,6 +5,10 @@
 	"author": "guillaume.ader",
 	"license": "MIT",
 	"private": true,
+	"repository": {
+		"type": "git",
+		"url": "git@github.com:guillaumeAder1/-abl-ui.git"
+	},
 	"scripts": {
 		"bootstrap": "lerna bootstrap --use-workspaces"
 	},
