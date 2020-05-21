@@ -11,7 +11,6 @@ const style = `
 		width: 40px;
 		margin: auto;
 		justify-content: space-between;
-		padding: 2px;
 	}
 	.slider:focus {
 		outline: 1px dashed black;
@@ -34,7 +33,7 @@ const style = `
 		flex-direction: column;
 	}
 	.tick {
-		margin: 2px;
+		margin-left: 2px;
 		height: 1px;
 		background: black;
 	}
