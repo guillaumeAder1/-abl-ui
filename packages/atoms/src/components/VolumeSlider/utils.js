@@ -6,4 +6,8 @@ const pixelToValue = (pixelValue, maxHeight, max) => {
 	return Math.round(max * percent);
 };
 
-export { pixelToValue, POINTER_HEIGHT, SLIDER_HEIGHT };
+const valueToPixel = (value, maxHeight, max) => {
+	const percent = value / max;
+	return percent * maxHeight;
+};
+export { pixelToValue, valueToPixel, POINTER_HEIGHT, SLIDER_HEIGHT };

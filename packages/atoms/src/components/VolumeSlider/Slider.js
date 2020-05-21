@@ -1,7 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Pointer from './Pointer';
-import { POINTER_HEIGHT, SLIDER_HEIGHT, pixelToValue } from './utils';
+import {
+	POINTER_HEIGHT,
+	SLIDER_HEIGHT,
+	pixelToValue,
+	valueToPixel,
+} from './utils';
 
 const style = `
 	.slider {
@@ -61,7 +66,9 @@ const Slider = ({ min, max, value, nbrTick, measures, onChange, ...props }) => {
 	});
 	const measuresList = measures.map((el, i) => <div key={i}>{el}</div>);
 
-	const [pointerVal, setPointerVal] = useState(0);
+	const [pointerVal, setPointerVal] = useState(
+		valueToPixel(value, SLIDER_HEIGHT - POINTER_HEIGHT, max)
+	);
 	const [isPressed, setIsPressed] = useState(false);
 	const [sliderValue, setSliderValue] = useState(value);
 
