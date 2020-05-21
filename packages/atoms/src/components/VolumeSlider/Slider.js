@@ -33,7 +33,6 @@ const style = `
 		justify-content: space-between;
 		flex-direction: column;
 		margin: ${POINTER_HEIGHT / 2}px 0; 
-
 	}
 	.tick {
 		margin-left: 2px;
@@ -75,7 +74,9 @@ const Slider = ({ min, max, value, nbrTick, measures, onChange, ...props }) => {
 		}
 	};
 	useEffect(() => {
-		const value = pixelToValue(pointerVal, SLIDER_HEIGHT, max);
+		let value = pixelToValue(pointerVal, SLIDER_HEIGHT - POINTER_HEIGHT, max);
+		if (value < min) value = min;
+		if (value > max) value = max;
 		setSliderValue(value);
 	}, [pointerVal]);
 
@@ -93,6 +94,7 @@ const Slider = ({ min, max, value, nbrTick, measures, onChange, ...props }) => {
 				onMouseMove={(evt) => {
 					evt.persist();
 					updateCusor(evt);
+					onChange && onChange(`${sliderValue} ${pointerVal}`);
 				}}
 				role="slider"
 				tabIndex="0"
