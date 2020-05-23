@@ -6,6 +6,7 @@ import {
 	SLIDER_HEIGHT,
 	pixelToValue,
 	valueToPixel,
+	buildTicks,
 } from './utils';
 
 const style = `
@@ -69,16 +70,10 @@ const Slider = ({
 	lazy,
 	...props
 }) => {
-	const ticks = ((nbr) => {
-		const arr = Array(Math.floor(nbr / 2))
-			.fill()
-			.map((el, i) => (i % 2 === 0 ? 'long' : 'short'));
-		const values =
-			nbr % 2 === 0
-				? [...arr, ...arr.reverse()]
-				: [...arr, 'short', ...arr.reverse()];
-		return values.map((el, i) => <div key={i} className={`tick ${el}`}></div>);
-	})(nbrTick);
+	const ticks = ((nbr) =>
+		buildTicks(nbr).map((el, i) => (
+			<div key={i} className={`tick ${el}`}></div>
+		)))(nbrTick);
 
 	const measuresList = measures.map((el, i) => <div key={i}>{el}</div>);
 
