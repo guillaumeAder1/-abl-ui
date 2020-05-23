@@ -89,10 +89,10 @@ exports[`Slider Component should render 1`] = `
         class="tick short"
       />
       <div
-        class="tick long"
+        class="tick short"
       />
       <div
-        class="tick short"
+        class="tick long"
       />
     </div>
     <div
