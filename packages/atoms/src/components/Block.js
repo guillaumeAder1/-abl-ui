@@ -28,6 +28,7 @@ const ButtonSelect = () => (
 			max={100}
 			value={75}
 			nbrTick={15}
+			lazy
 			measures={[0, 50, 100]}
 			onChange={(val) => console.log(val)}
 		/>

@@ -59,7 +59,16 @@ const style = `
 	}
 `;
 
-const Slider = ({ min, max, value, nbrTick, measures, onChange, ...props }) => {
+const Slider = ({
+	min,
+	max,
+	value,
+	nbrTick,
+	measures,
+	onChange,
+	lazy,
+	...props
+}) => {
 	const ticks = new Array(nbrTick).fill().map((el, i) => {
 		const type = i % 3 === 0 ? 'long' : 'short';
 		return <div key={i} className={`tick ${type}`}></div>;
@@ -101,7 +110,13 @@ const Slider = ({ min, max, value, nbrTick, measures, onChange, ...props }) => {
 				onMouseMove={(evt) => {
 					evt.persist();
 					updateCusor(evt);
-					onChange && onChange(`${sliderValue} ${pointerVal}`);
+					onChange && isPressed && !lazy && onChange(`${sliderValue}`);
+				}}
+				onMouseLeave={() => {
+					if (isPressed) {
+						setIsPressed(false);
+						onChange && onChange(sliderValue);
+					}
 				}}
 				role="slider"
 				tabIndex="0"
@@ -131,7 +146,9 @@ Slider.propTypes = {
 	max: PropTypes.number,
 	value: PropTypes.number,
 	nbrTick: PropTypes.number,
-	measures: PropTypes.array,
+	onChange: PropTypes.func, // callback function returning slider value
+	measures: PropTypes.array, // values list displayed on the slider
+	lazy: PropTypes.bool, // if true, trigger onChange hanlder only when mouse release OR leaves
 };
 Slider.defaultProps = {
 	min: 0,
@@ -139,6 +156,8 @@ Slider.defaultProps = {
 	value: 90,
 	nbrTick: 5,
 	measures: [100, 0],
+	lazy: undefined,
+	onChange: () => {},
 };
 
 export default Slider;
