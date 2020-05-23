@@ -69,10 +69,17 @@ const Slider = ({
 	lazy,
 	...props
 }) => {
-	const ticks = new Array(nbrTick).fill().map((el, i) => {
-		const type = i % 3 === 0 ? 'long' : 'short';
-		return <div key={i} className={`tick ${type}`}></div>;
-	});
+	const ticks = ((nbr) => {
+		const arr = Array(Math.floor(nbr / 2))
+			.fill()
+			.map((el, i) => (i % 2 === 0 ? 'long' : 'short'));
+		const values =
+			nbr % 2 === 0
+				? [...arr, ...arr.reverse()]
+				: [...arr, 'short', ...arr.reverse()];
+		return values.map((el, i) => <div key={i} className={`tick ${el}`}></div>);
+	})(nbrTick);
+
 	const measuresList = measures.map((el, i) => <div key={i}>{el}</div>);
 
 	const [pointerVal, setPointerVal] = useState(
