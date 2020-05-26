@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from '@abl/atoms';
+import { Button, Slider } from '@abl/atoms';
 
 import './App.css';
 
@@ -8,7 +8,7 @@ function App() {
 		<div className="App">
 			<header className="App-header">
 				<Button>hello world</Button>
-				{/* <Slider /> */}
+				<Slider />
 			</header>
 		</div>
 	);
