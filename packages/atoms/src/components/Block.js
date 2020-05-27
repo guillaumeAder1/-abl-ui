@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from './Button';
+import Button from './button';
 import Select from './Select';
 import { Slider } from './VolumeSlider';
 import styled from '@emotion/styled';
