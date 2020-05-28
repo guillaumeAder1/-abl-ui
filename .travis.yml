@@ -5,6 +5,10 @@ language: node_js
 node_js:
   - node
 
+branches:
+  only:
+    - master
+    - dev
 # update yarn to the newest version
 before_install:
   - curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version 1.22.4
@@ -13,6 +17,7 @@ before_install:
 install:
   - yarn install
 script:
+  - yarn lint
   - yarn test
 
 nofications:
