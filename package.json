@@ -11,7 +11,8 @@
 	},
 	"scripts": {
 		"bootstrap": "lerna bootstrap --use-workspaces",
-		"test": "lerna exec --stream --concurrency=1 -- yarn test"
+		"test": "lerna exec --stream --concurrency=1 -- yarn test",
+		"lint": "lerna exec --stream --concurrency=1 -- yarn lint"
 	},
 	"devDependencies": {
 		"eslint": "^7.0.0",
