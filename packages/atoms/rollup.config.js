@@ -6,18 +6,36 @@ import { terser } from 'rollup-plugin-terser';
 
 import packageJSON from './package.json';
 const input = './src/index.js';
+const name = packageJSON.libName;
+const path = 'lib/';
+const bundle = 'index';
+const minified = process.env.BUILD === 'production' ? '.min' : '';
 
 export default [
-	// CommonJS
 	{
 		input,
-		output: {
-			file: packageJSON.main,
-			format: 'cjs',
-		},
+		output: [
+			{
+				file: `${path}/${bundle}.js`,
+				format: 'cjs',
+			},
+			{
+				file: `${path}/${bundle}.cjs${minified}.js`,
+				format: 'cjs',
+			},
+			{
+				file: `${path}/${bundle}.esm${minified}.js`,
+				format: 'esm',
+			},
+			{
+				file: `${path}/${bundle}.umd${minified}.js`,
+				format: 'umd',
+				name,
+			},
+		],
 		plugins: [
 			babel({
-				exclude: 'node_modules/**',
+				exclude: /node_modules/,
 			}),
 			external(),
 			resolve(),

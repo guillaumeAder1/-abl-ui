@@ -3,13 +3,15 @@
 	"version": "0.0.0",
 	"main": "lib/index.js",
 	"license": "MIT",
+	"libName": "AblAtome",
 	"scripts": {
 		"dev": "start-storybook -p 6006",
 		"test": "jest",
 		"lint": "eslint . --ext .js",
 		"build-storybook": "build-storybook",
+		"prebuild": "rm -rf lib/",
 		"build": "rollup -c",
-		"build:production": "rollup -c --environment BUILD:production"
+		"build:prod": "rollup -c --environment BUILD:production"
 	},
 	"dependencies": {
 		"@emotion/core": "^10.0.28",

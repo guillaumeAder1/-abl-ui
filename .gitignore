@@ -10,4 +10,5 @@ yalc.lock
 .yalc
 
 dist
+packages/atoms/lib
 
