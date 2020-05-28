@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 
@@ -18,11 +18,11 @@ const Circle = styled('circle')`
 const Knob = ({ ...props }) => {
 	const test = Math.round(0.2);
 	return (
-		<div>
+		<Fragment>
 			<SvgContainer>
 				<Circle />
 			</SvgContainer>
-		</div>
+		</Fragment>
 	);
 };
 
