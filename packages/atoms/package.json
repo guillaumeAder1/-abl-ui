@@ -8,7 +8,8 @@
 		"test": "jest",
 		"lint": "eslint . --ext .js",
 		"build-storybook": "build-storybook",
-		"build": "rollup -c"
+		"build": "rollup -c",
+		"build:production": "rollup -c --environment BUILD:production"
 	},
 	"dependencies": {
 		"@emotion/core": "^10.0.28",
@@ -45,6 +46,7 @@
 		"rollup-plugin-babel": "^4.4.0",
 		"rollup-plugin-commonjs": "^10.1.0",
 		"rollup-plugin-node-resolve": "^5.2.0",
-		"rollup-plugin-peer-deps-external": "^2.2.2"
+		"rollup-plugin-peer-deps-external": "^2.2.2",
+		"rollup-plugin-terser": "^6.1.0"
 	}
 }

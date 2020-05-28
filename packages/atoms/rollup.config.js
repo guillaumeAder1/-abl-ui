@@ -2,7 +2,7 @@ import babel from 'rollup-plugin-babel';
 import commonjs from 'rollup-plugin-commonjs';
 import resolve from 'rollup-plugin-node-resolve';
 import external from 'rollup-plugin-peer-deps-external';
-
+import { terser } from 'rollup-plugin-terser';
 
 import packageJSON from './package.json';
 const input = './src/index.js';
@@ -13,15 +13,16 @@ export default [
 		input,
 		output: {
 			file: packageJSON.main,
-			format: 'cjs'
+			format: 'cjs',
 		},
 		plugins: [
 			babel({
-				exclude: 'node_modules/**'
+				exclude: 'node_modules/**',
 			}),
 			external(),
 			resolve(),
 			commonjs(),
-		]
-	}
+			process.env.BUILD === 'production' ? terser() : [],
+		],
+	},
 ];
