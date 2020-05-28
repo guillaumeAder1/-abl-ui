@@ -11,7 +11,7 @@
 	},
 	"scripts": {
 		"bootstrap": "lerna bootstrap --use-workspaces",
-		"test": "yarn workspace @abl/atoms test"
+		"test": "lerna exec --stream --concurrency=1 -- yarn test"
 	},
 	"devDependencies": {
 		"eslint": "^7.0.0",
