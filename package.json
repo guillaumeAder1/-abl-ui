@@ -10,7 +10,8 @@
 		"url": "git@github.com:guillaumeAder1/-abl-ui.git"
 	},
 	"scripts": {
-		"bootstrap": "lerna bootstrap --use-workspaces"
+		"bootstrap": "lerna bootstrap --use-workspaces",
+		"test": "yarn workspace @abl/atoms test"
 	},
 	"devDependencies": {
 		"eslint": "^7.0.0",
