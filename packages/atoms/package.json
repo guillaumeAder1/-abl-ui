@@ -2,6 +2,8 @@
 	"name": "@abl/atoms",
 	"version": "0.0.0",
 	"main": "lib/index.js",
+	"module": "lib/index.esm.js",
+	"browser": "lib/index.umd.js",
 	"license": "MIT",
 	"libName": "AblAtome",
 	"scripts": {
