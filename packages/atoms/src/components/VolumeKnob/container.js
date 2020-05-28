@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import Knob from './knob';
 
 const GridContainer = styled('div')`
+	max-width: ${(props) => `${props.width}px`};
+	max-height: ${(props) => `${props.height}px`};
 	display: grid;
 	background-color: red;
 	grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -19,9 +21,9 @@ const Circle = styled('div')`
 	background-color: gray;
 	grid-area: circle;
 `;
-const Container = ({ label, value, ...props }) => {
+const Container = ({ label, value, width, height, ...props }) => {
 	return (
-		<GridContainer>
+		<GridContainer width={width} height={height}>
 			<Label>{label}</Label>
 			<Circle>
 				<Knob />
@@ -38,8 +40,8 @@ Container.propTypes = {
 	lazy: PropTypes.bool,
 };
 Container.defaultProps = {
-	width: 50,
-	height: 40,
+	width: 100,
+	height: 70,
 	value: 50,
 	label: 'Setting',
 	lazy: false,
