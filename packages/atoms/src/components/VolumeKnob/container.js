@@ -7,11 +7,11 @@ const GridContainer = styled('div')`
 	max-width: ${(props) => `${props.width}px`};
 	max-height: ${(props) => `${props.height}px`};
 	display: grid;
-	background-color: red;
+	background-color: grey;
 	grid-template-columns: 1fr 1fr 1fr 1fr;
 	grid-template-rows: 0.5fr 1fr 1fr;
 	gap: 1px 1px;
-	grid-template-areas: 'label label label label' 'circle circle . .' 'circle circle . .';
+	grid-template-areas: 'label label label label' 'circle circle . .' 'circle circle value .';
 `;
 const Label = styled('div')`
 	background-color: gray;
@@ -21,6 +21,15 @@ const Circle = styled('div')`
 	background-color: gray;
 	grid-area: circle;
 `;
+const Value = styled('div')`
+	background-color: gray;
+	grid-area: value;
+	margin-left: -100%;
+`;
+const Text = styled.div`
+	margin: 10%;
+`;
+
 const Container = ({ label, value, width, height, ...props }) => {
 	return (
 		<GridContainer width={width} height={height}>
@@ -28,6 +37,9 @@ const Container = ({ label, value, width, height, ...props }) => {
 			<Circle>
 				<Knob />
 			</Circle>
+			<Value>
+				<Text>{value}</Text>
+			</Value>
 		</GridContainer>
 	);
 };

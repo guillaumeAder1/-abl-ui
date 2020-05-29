@@ -3,20 +3,19 @@ import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 
 const SvgContainer = styled('svg')`
-	height: 100px;
-	width: 100px;
+	height: 100%;
+	width: 100%;
 	fill: gray;
 `;
 const Circle = styled('circle')`
-	cy: 50px;
-	cx: 50px;
-	r: 50px;
+	cy: 25px;
+	cx: 25px;
+	r: 20px;
 	stroke: black;
 	fill: transparent;
-	stroke-width: 5px;
+	stroke-width: 3px;
 `;
 const Knob = ({ ...props }) => {
-	const test = Math.round(0.2);
 	return (
 		<Fragment>
 			<SvgContainer>
