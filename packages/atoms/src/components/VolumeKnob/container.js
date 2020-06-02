@@ -16,6 +16,7 @@ const GridContainer = styled('div')`
 const Label = styled('div')`
 	background-color: gray;
 	grid-area: label;
+	font-size: 12px;
 `;
 const Circle = styled('div')`
 	background-color: gray;
@@ -25,6 +26,7 @@ const Value = styled('div')`
 	background-color: gray;
 	grid-area: value;
 	margin-left: -100%;
+	font-size: 9px;
 `;
 const Text = styled.div`
 	margin: 10%;
@@ -52,8 +54,8 @@ Container.propTypes = {
 	lazy: PropTypes.bool,
 };
 Container.defaultProps = {
-	width: 100,
-	height: 70,
+	width: 80,
+	height: 50,
 	value: 50,
 	label: 'Setting',
 	lazy: false,

@@ -8,12 +8,12 @@ const SvgContainer = styled('svg')`
 	fill: gray;
 `;
 const Circle = styled('circle')`
-	cy: 25px;
-	cx: 25px;
-	r: 20px;
+	cy: 15px;
+	cx: 17px;
+	r: 13px;
 	stroke: black;
 	fill: transparent;
-	stroke-width: 3px;
+	stroke-width: 2px;
 `;
 const Knob = ({ ...props }) => {
 	return (
