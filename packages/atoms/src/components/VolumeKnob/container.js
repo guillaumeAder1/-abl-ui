@@ -39,10 +39,18 @@ const Text = styled.div`
 const Container = ({ label, value, width, height, ...props }) => {
 	const labelHeight = height / 4.5;
 	const circleSize = width / 2;
+	const hanldeClick = () => {
+		const line = document.querySelector('line');
+		let i = 0;
+		setInterval(function () {
+			i += 2;
+			line.setAttribute('transform', 'rotate(' + i + ', 15, 15)');
+		}, 25);
+	};
 	return (
 		<GridContainer width={width} height={height}>
 			<Label height={labelHeight}>{label}</Label>
-			<Button size={circleSize}>
+			<Button onClick={hanldeClick} size={circleSize}>
 				<Knob size={circleSize} />
 				<Text>{value}</Text>
 			</Button>
