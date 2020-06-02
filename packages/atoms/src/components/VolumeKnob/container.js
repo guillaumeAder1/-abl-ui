@@ -15,7 +15,7 @@ const Label = styled('div')`
 	background-color: lightblue;
 	${font};
 `;
-const Circle = styled('div')`
+const Button = styled('div')`
 	display: flex;
 	position: relative;
 	max-width: ${(props) => `${props.size}px`};
@@ -42,10 +42,10 @@ const Container = ({ label, value, width, height, ...props }) => {
 	return (
 		<GridContainer width={width} height={height}>
 			<Label height={labelHeight}>{label}</Label>
-			<Circle size={circleSize}>
+			<Button size={circleSize}>
 				<Knob size={circleSize} />
 				<Text>{value}</Text>
-			</Circle>
+			</Button>
 		</GridContainer>
 	);
 };
