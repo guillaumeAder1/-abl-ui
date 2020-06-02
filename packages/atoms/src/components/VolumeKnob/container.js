@@ -2,46 +2,50 @@ import React from 'react';
 import styled from '@emotion/styled';
 import PropTypes from 'prop-types';
 import Knob from './knob';
+import { font } from 'style/vars';
 
 const GridContainer = styled('div')`
 	max-width: ${(props) => `${props.width}px`};
 	max-height: ${(props) => `${props.height}px`};
-	display: grid;
-	background-color: grey;
-	grid-template-columns: 1fr 1fr 1fr 1fr;
-	grid-template-rows: 0.5fr 1fr 1fr;
-	gap: 1px 1px;
-	grid-template-areas: 'label label label label' 'circle circle . .' 'circle circle value .';
+	display: flex;
+	flex-direction: column;
 `;
 const Label = styled('div')`
-	background-color: gray;
-	grid-area: label;
-	font-size: 12px;
+	flex: 0 0 ${(props) => `${props.height}px`};
+	background-color: lightblue;
+	${font};
 `;
 const Circle = styled('div')`
-	background-color: gray;
-	grid-area: circle;
+	display: flex;
+	position: relative;
+	max-width: ${(props) => `${props.size}px`};
+	max-height: ${(props) => `${props.size}px`};
 `;
-const Value = styled('div')`
-	background-color: gray;
-	grid-area: value;
-	margin-left: -100%;
-	font-size: 9px;
-`;
+
 const Text = styled.div`
-	margin: 10%;
+	height: 50%;
+	width: 50%;
+	bottom: 0;
+	right: 0;
+	position: absolute;
+	line-height: 100%;
+	background-color: white;
+	text-align: end;
+	${font};
+	font-size: 10px;
+	background-color: lightblue;
 `;
 
 const Container = ({ label, value, width, height, ...props }) => {
+	const labelHeight = height / 4.5;
+	const circleSize = width / 2;
 	return (
 		<GridContainer width={width} height={height}>
-			<Label>{label}</Label>
-			<Circle>
-				<Knob />
-			</Circle>
-			<Value>
+			<Label height={labelHeight}>{label}</Label>
+			<Circle size={circleSize}>
+				<Knob size={circleSize} />
 				<Text>{value}</Text>
-			</Value>
+			</Circle>
 		</GridContainer>
 	);
 };
@@ -54,7 +58,7 @@ Container.propTypes = {
 	lazy: PropTypes.bool,
 };
 Container.defaultProps = {
-	width: 80,
+	width: 60,
 	height: 50,
 	value: 50,
 	label: 'Setting',
