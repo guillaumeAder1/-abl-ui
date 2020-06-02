@@ -17,7 +17,17 @@ const Knob = ({ size, ...props }) => {
 	return (
 		<Fragment>
 			<SvgContainer>
-				<Circle size={size} />
+				<g>
+					<Circle size={size} />
+					<line
+						x1="0"
+						y1="0"
+						x2="15"
+						y2="15"
+						strokeWidth="2"
+						stroke="black"
+					></line>
+				</g>
 			</SvgContainer>
 		</Fragment>
 	);
