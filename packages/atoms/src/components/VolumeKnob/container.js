@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from '@emotion/styled';
 import PropTypes from 'prop-types';
 import Knob from './knob';
@@ -21,7 +21,12 @@ const Button = styled('div')`
 	max-width: ${(props) => `${props.size}px`};
 	max-height: ${(props) => `${props.size}px`};
 `;
-
+const DragArea = styled('div')`
+	position: absolute;
+	width: 50px;
+	height: 140px;
+	background: rgba(255, 0, 5, 0.2);
+`;
 const Text = styled.div`
 	height: 50%;
 	width: 50%;
@@ -39,18 +44,46 @@ const Text = styled.div`
 const Container = ({ label, value, width, height, ...props }) => {
 	const labelHeight = height / 4.5;
 	const circleSize = width / 2;
-	const hanldeClick = () => {
-		const line = document.querySelector('line');
-		let i = 0;
-		setInterval(function () {
-			i += 2;
-			line.setAttribute('transform', 'rotate(' + i + ', 15, 15)');
-		}, 25);
+	const [mousePos, setMousePos] = useState(0);
+	const [isPressed, setPressed] = useState(false);
+	const [lineRef, setLineRef] = useState(null);
+	const hanldeClick = (evt) => {
+		if (!lineRef) setLineRef(document.querySelector('line'));
+		if (!isPressed) {
+			setPressed(true);
+			setMousePos(evt.clientY);
+		}
+	};
+	const release = () => {
+		if (isPressed) {
+			setPressed(false);
+			setMousePos(0);
+		}
+	};
+	const update = (evt) => {
+		if (isPressed) {
+			console.log(lineRef);
+			const value = mousePos - evt.clientY;
+			console.log(value);
+			lineRef.setAttribute('transform', 'rotate(' + value + ', 15, 15)');
+		}
 	};
 	return (
 		<GridContainer width={width} height={height}>
+			<DragArea
+				onMouseDown={(evt) => {
+					evt.persist();
+					hanldeClick(evt);
+				}}
+				onMouseMove={(evt) => {
+					evt.persist();
+					update(evt);
+				}}
+				// onMouseLeave={setPressed(false)}
+				onMouseUp={release}
+			/>
 			<Label height={labelHeight}>{label}</Label>
-			<Button onClick={hanldeClick} size={circleSize}>
+			<Button size={circleSize}>
 				<Knob size={circleSize} />
 				<Text>{value}</Text>
 			</Button>

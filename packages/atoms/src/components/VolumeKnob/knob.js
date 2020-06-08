@@ -20,8 +20,8 @@ const Knob = ({ size, ...props }) => {
 				<g>
 					<Circle size={size} />
 					<line
-						x1="3"
-						y1="3"
+						x1="0"
+						y1="14.5"
 						x2="15"
 						y2="15"
 						strokeWidth="2"
