@@ -35,7 +35,15 @@ const Text = styled.div`
 	background-color: lightblue;
 `;
 
-const Container = ({ label, value, width, height, ...props }) => {
+const Container = ({
+	label,
+	value,
+	width,
+	height,
+	lazy,
+	onChange,
+	...props
+}) => {
 	const labelHeight = height / 4.5;
 	const circleSize = width / 2;
 	const [mousePos, setMousePos] = useState(0);
@@ -49,8 +57,6 @@ const Container = ({ label, value, width, height, ...props }) => {
 				window.removeEventListener('mousemove', update);
 				window.addEventListener('mouseup', release);
 			};
-		} else {
-			console.warn('releASED');
 		}
 	}, [isPressed]);
 
@@ -60,6 +66,7 @@ const Container = ({ label, value, width, height, ...props }) => {
 	const update = (evt) => {
 		const value = mousePos - evt.clientY;
 		lineRef.current.setAttribute('transform', 'rotate(' + value + ', 15, 15)');
+		!lazy && onChange(value);
 	};
 	return (
 		<GridContainer width={width} height={height}>
@@ -70,7 +77,6 @@ const Container = ({ label, value, width, height, ...props }) => {
 					setMousePos(evt.clientY);
 					setPressed(true);
 				}}
-				onMouseUp={release}
 				size={circleSize}
 			>
 				<Knob forwardedRef={lineRef} size={circleSize} />
