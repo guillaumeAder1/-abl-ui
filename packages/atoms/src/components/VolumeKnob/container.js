@@ -42,6 +42,8 @@ const Container = ({
 	height,
 	lazy,
 	onChange,
+	angleMin,
+	angleMax,
 	...props
 }) => {
 	const labelHeight = height / 4.5;
@@ -60,12 +62,17 @@ const Container = ({
 		}
 	}, [isPressed]);
 
+	useEffect(() => {
+		console.log('mounted');
+	}, []);
+
 	const release = () => {
 		setPressed(false);
 	};
 	const update = (evt) => {
 		const value = mousePos - evt.clientY;
 		lineRef.current.setAttribute('transform', 'rotate(' + value + ', 15, 15)');
+		setMousePos(value);
 		!lazy && onChange(value);
 	};
 	return (
@@ -74,7 +81,7 @@ const Container = ({
 			<Button
 				onMouseDown={(evt) => {
 					evt.persist();
-					setMousePos(evt.clientY);
+					// setMousePos(evt.clientY);
 					setPressed(true);
 				}}
 				size={circleSize}
@@ -91,16 +98,20 @@ Container.propTypes = {
 	value: PropTypes.number,
 	label: PropTypes.string,
 	onChange: PropTypes.func,
+	angleMin: PropTypes.number,
+	angleMax: PropTypes.number,
 	lazy: PropTypes.bool,
 };
 Container.defaultProps = {
 	width: 60,
 	height: 50,
-	value: 50,
+	value: 50, // as a percentage
 	label: 'Setting',
 	lazy: false,
+	angleMax: 270,
+	angleMin: 0,
 	onChange: (value) => {
-		console.log(value);
+		// console.log(value);
 	},
 };
 export default Container;

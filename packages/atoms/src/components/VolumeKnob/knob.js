@@ -20,12 +20,22 @@ const Knob = ({ size, forwardedRef, ...props }) => {
 				<Circle size={size} />
 				<g ref={forwardedRef}>
 					<line
-						x1="0"
-						y1="14.5"
+						x1="1.5"
+						y1="16"
+						x2="15"
+						y2="16"
+						strokeWidth="2"
+						stroke="red"
+						strokeLinecap="round"
+					></line>
+					<line
+						x1="2"
+						y1="15"
 						x2="15"
 						y2="15"
 						strokeWidth="2"
 						stroke="black"
+						strokeLinecap="round"
 					></line>
 				</g>
 			</SvgContainer>
