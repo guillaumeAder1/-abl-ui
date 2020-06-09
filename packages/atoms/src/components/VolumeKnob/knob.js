@@ -17,10 +17,9 @@ const Knob = ({ size, forwardedRef, ...props }) => {
 	return (
 		<Fragment>
 			<SvgContainer>
-				<g>
-					<Circle size={size} />
+				<Circle size={size} />
+				<g ref={forwardedRef}>
 					<line
-						ref={forwardedRef}
 						x1="0"
 						y1="14.5"
 						x2="15"
