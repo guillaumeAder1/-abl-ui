@@ -13,13 +13,14 @@ const Circle = styled('circle')`
 	fill: transparent;
 	stroke-width: 2px;
 `;
-const Knob = ({ size, ...props }) => {
+const Knob = ({ size, forwardedRef, ...props }) => {
 	return (
 		<Fragment>
 			<SvgContainer>
 				<g>
 					<Circle size={size} />
 					<line
+						ref={forwardedRef}
 						x1="0"
 						y1="14.5"
 						x2="15"
