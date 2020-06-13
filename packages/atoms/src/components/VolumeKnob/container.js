@@ -50,6 +50,7 @@ const Container = ({
 	const circleSize = width / 2;
 	const [mousePos, setMousePos] = useState(0);
 	const [isPressed, setPressed] = useState(false);
+	const [saved, setSaved] = useState(0);
 	let lineRef = useRef(null);
 	useEffect(() => {
 		if (isPressed) {
@@ -75,6 +76,16 @@ const Container = ({
 		setMousePos(value);
 		!lazy && onChange(value);
 	};
+	const add = () => {
+		const value = saved + 15;
+		lineRef.current.setAttribute('transform', 'rotate(' + value + ', 15, 15)');
+		setSaved(value);
+	};
+	const substract = () => {
+		const value = saved - 15;
+		lineRef.current.setAttribute('transform', 'rotate(' + value + ', 15, 15)');
+		setSaved(value);
+	};
 	return (
 		<GridContainer width={width} height={height}>
 			<Label height={labelHeight}>{label}</Label>
@@ -89,6 +100,8 @@ const Container = ({
 				<Knob forwardedRef={lineRef} size={circleSize} />
 				<Text>{value}</Text>
 			</Button>
+			<button onClick={add}>+</button>
+			<button onClick={substract}>-</button>
 		</GridContainer>
 	);
 };
