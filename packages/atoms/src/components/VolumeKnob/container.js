@@ -71,20 +71,34 @@ const Container = ({
 		setPressed(false);
 	};
 	const update = (evt) => {
-		const value = mousePos - evt.clientY;
+		let value = mousePos - evt.clientY;
+		if (value < 0) {
+			value = 360 - Math.abs(value);
+		} else if (value > 360) {
+			value = Math.abs(360 - value);
+		}
+		console.warn(value);
 		lineRef.current.setAttribute('transform', 'rotate(' + value + ', 15, 15)');
 		setMousePos(value);
 		!lazy && onChange(value);
 	};
 	const add = () => {
-		const value = saved + 15;
+		let value = saved + 15;
+		if (value > 360) {
+			value = Math.abs(360 - value);
+		}
 		lineRef.current.setAttribute('transform', 'rotate(' + value + ', 15, 15)');
 		setSaved(value);
+		console.warn(lineRef.current.getAttribute('transform'), value);
 	};
 	const substract = () => {
-		const value = saved - 15;
+		let value = saved - 15;
+		if (value < 0) {
+			value = 360 - Math.abs(value);
+		}
 		lineRef.current.setAttribute('transform', 'rotate(' + value + ', 15, 15)');
 		setSaved(value);
+		console.warn(lineRef.current.getAttribute('transform'), value);
 	};
 	return (
 		<GridContainer width={width} height={height}>
