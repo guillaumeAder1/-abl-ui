@@ -69,17 +69,21 @@ const Container = ({
 
 	const release = () => {
 		setPressed(false);
+		const regExp = /\(([^)]+)\)/;
+		const val = regExp.exec(lineRef.current.getAttribute('transform'));
+		const t = val[0].replace('(', '').replace(')', '');
+		const angle = t.split(',')[0];
+		setSaved(parseInt(angle, 10));
 	};
 	const update = (evt) => {
-		let value = mousePos - evt.clientY;
+		const diffMouse = mousePos - evt.clientY;
+		let value = saved - diffMouse;
 		if (value < 0) {
 			value = 360 - Math.abs(value);
 		} else if (value > 360) {
 			value = Math.abs(360 - value);
 		}
-		console.warn(value);
 		lineRef.current.setAttribute('transform', 'rotate(' + value + ', 15, 15)');
-		setMousePos(value);
 		!lazy && onChange(value);
 	};
 	const add = () => {
@@ -106,7 +110,7 @@ const Container = ({
 			<Button
 				onMouseDown={(evt) => {
 					evt.persist();
-					// setMousePos(evt.clientY);
+					setMousePos(evt.clientY);
 					setPressed(true);
 				}}
 				size={circleSize}

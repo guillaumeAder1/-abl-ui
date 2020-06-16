@@ -14,71 +14,40 @@ const Circle = styled('circle')`
 	stroke-width: 2px;
 `;
 
-const Knob = ({ size, forwardedRef, ...props }) => {
-	console.log('rerednererer');
-	return (
-		<Fragment>
-			<SvgContainer>
-				<Circle size={size} />
-				<g ref={forwardedRef}>
-					<line
-						x1="1.5"
-						y1="16"
-						x2="15"
-						y2="16"
-						strokeWidth="2"
-						stroke="red"
-						strokeLinecap="round"
-					></line>
-					<line
-						x1="2"
-						y1="15"
-						x2="15"
-						y2="15"
-						strokeWidth="2"
-						stroke="black"
-						strokeLinecap="round"
-					></line>
-				</g>
-			</SvgContainer>
-		</Fragment>
-	);
-};
-
-// class Knob extends React.PureComponent {
-// 	constructor(props) {
-// 		console.warn('reredner');
-// 		super(props);
-// 	}
-// 	render() {
-// 		return (
-// 			<Fragment>
-// 				<SvgContainer>
-// 					<Circle size={this.props.size} />
-// 					<g ref={this.props.forwardedRef}>
-// 						<line
-// 							x1="1.5"
-// 							y1="16"
-// 							x2="15"
-// 							y2="16"
-// 							strokeWidth="2"
-// 							stroke="red"
-// 							strokeLinecap="round"
-// 						></line>
-// 						<line
-// 							x1="2"
-// 							y1="15"
-// 							x2="15"
-// 							y2="15"
-// 							strokeWidth="2"
-// 							stroke="black"
-// 							strokeLinecap="round"
-// 						></line>
-// 					</g>
-// 				</SvgContainer>
-// 			</Fragment>
-// 		);
-// 	}
-// }
+class Knob extends React.PureComponent {
+	constructor(props) {
+		super(props);
+	}
+	render() {
+		console.warn('reredner');
+		return (
+			<Fragment>
+				<SvgContainer>
+					<Circle size={this.props.size} />
+					<g ref={this.props.forwardedRef}>
+						<line
+							x1="1.5"
+							y1="16"
+							x2="15"
+							y2="16"
+							strokeWidth="2"
+							stroke="red"
+							strokeLinecap="round"
+						></line>
+						<line
+							x1="2"
+							y1="15"
+							x2="15"
+							y2="15"
+							strokeWidth="2"
+							stroke="black"
+							strokeLinecap="round"
+						></line>
+					</g>
+				</SvgContainer>
+			</Fragment>
+		);
+	}
+}
 
 export default Knob;
