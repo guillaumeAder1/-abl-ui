@@ -99,17 +99,15 @@ const Container = ({
 			ref={containerRef}
 			width={width}
 			height={height}
+			onMouseDown={(evt) => {
+				evt.persist();
+				setMousePos(evt.clientY);
+				setPressed(true);
+				console.log();
+			}}
 		>
 			<Label height={labelHeight}>{label}</Label>
-			<Button
-				onMouseDown={(evt) => {
-					evt.persist();
-					setMousePos(evt.clientY);
-					setPressed(true);
-					console.log();
-				}}
-				size={circleSize}
-			>
+			<Button size={circleSize}>
 				<Knob forwardedRef={lineRef} size={circleSize} />
 				<Text>{tmpPos.current}</Text>
 			</Button>
