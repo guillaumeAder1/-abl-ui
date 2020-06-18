@@ -51,12 +51,14 @@ const Container = ({
 	const [mousePos, setMousePos] = useState(0);
 	const [isPressed, setPressed] = useState(false);
 	const [saved, setSaved] = useState(0);
+	const tmpPos = useRef(0);
 	let lineRef = useRef(null);
 	useEffect(() => {
 		if (isPressed) {
 			window.addEventListener('mousemove', update);
 			window.addEventListener('mouseup', release);
 			return () => {
+				console.warn('event listener removed');
 				window.removeEventListener('mousemove', update);
 				window.addEventListener('mouseup', release);
 			};
@@ -69,11 +71,8 @@ const Container = ({
 
 	const release = () => {
 		setPressed(false);
-		const regExp = /\(([^)]+)\)/;
-		const val = regExp.exec(lineRef.current.getAttribute('transform'));
-		const t = val[0].replace('(', '').replace(')', '');
-		const angle = t.split(',')[0];
-		setSaved(parseInt(angle, 10));
+		setSaved(tmpPos.current);
+		console.log(saved, tmpPos.current);
 	};
 	const update = (evt) => {
 		const diffMouse = mousePos - evt.clientY;
@@ -83,26 +82,9 @@ const Container = ({
 		} else if (value > 360) {
 			value = Math.abs(360 - value);
 		}
+		tmpPos.current = value;
 		lineRef.current.setAttribute('transform', 'rotate(' + value + ', 15, 15)');
 		!lazy && onChange(value);
-	};
-	const add = () => {
-		let value = saved + 15;
-		if (value > 360) {
-			value = Math.abs(360 - value);
-		}
-		lineRef.current.setAttribute('transform', 'rotate(' + value + ', 15, 15)');
-		setSaved(value);
-		console.warn(lineRef.current.getAttribute('transform'), value);
-	};
-	const substract = () => {
-		let value = saved - 15;
-		if (value < 0) {
-			value = 360 - Math.abs(value);
-		}
-		lineRef.current.setAttribute('transform', 'rotate(' + value + ', 15, 15)');
-		setSaved(value);
-		console.warn(lineRef.current.getAttribute('transform'), value);
 	};
 	return (
 		<GridContainer width={width} height={height}>
@@ -118,8 +100,6 @@ const Container = ({
 				<Knob forwardedRef={lineRef} size={circleSize} />
 				<Text>{value}</Text>
 			</Button>
-			<button onClick={add}>+</button>
-			<button onClick={substract}>-</button>
 		</GridContainer>
 	);
 };
