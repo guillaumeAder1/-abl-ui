@@ -9,6 +9,10 @@ const GridContainer = styled('div')`
 	max-height: ${(props) => `${props.height}px`};
 	display: flex;
 	flex-direction: column;
+	padding: 2px;
+	&:focus {
+		outline: 1px dashed black;
+	}
 `;
 const Label = styled('div')`
 	flex: 0 0 ${(props) => `${props.height}px`};
@@ -52,13 +56,14 @@ const Container = ({
 	const [isPressed, setPressed] = useState(false);
 	const [saved, setSaved] = useState(0);
 	const tmpPos = useRef(0);
+	const containerRef = useRef(null);
 	let lineRef = useRef(null);
 	useEffect(() => {
 		if (isPressed) {
+			containerRef.current.focus();
 			window.addEventListener('mousemove', update);
 			window.addEventListener('mouseup', release);
 			return () => {
-				console.warn('event listener removed');
 				window.removeEventListener('mousemove', update);
 				window.addEventListener('mouseup', release);
 			};
@@ -66,17 +71,18 @@ const Container = ({
 	}, [isPressed]);
 
 	useEffect(() => {
-		console.log('mounted');
+		// console.log('mounted');
 	}, []);
 
 	const release = () => {
 		setPressed(false);
 		setSaved(tmpPos.current);
-		console.log(saved, tmpPos.current);
+		// console.log(saved, tmpPos.current);
 	};
 	const update = (evt) => {
 		const diffMouse = mousePos - evt.clientY;
 		let value = saved - diffMouse;
+		console.log(saved, diffMouse, value);
 		if (value < 0) {
 			value = 360 - Math.abs(value);
 		} else if (value > 360) {
@@ -87,18 +93,25 @@ const Container = ({
 		!lazy && onChange(value);
 	};
 	return (
-		<GridContainer width={width} height={height}>
+		<GridContainer
+			role="slider"
+			tabIndex="0"
+			ref={containerRef}
+			width={width}
+			height={height}
+		>
 			<Label height={labelHeight}>{label}</Label>
 			<Button
 				onMouseDown={(evt) => {
 					evt.persist();
 					setMousePos(evt.clientY);
 					setPressed(true);
+					console.log();
 				}}
 				size={circleSize}
 			>
 				<Knob forwardedRef={lineRef} size={circleSize} />
-				<Text>{value}</Text>
+				<Text>{tmpPos.current}</Text>
 			</Button>
 		</GridContainer>
 	);
