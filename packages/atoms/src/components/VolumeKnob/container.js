@@ -26,12 +26,12 @@ const Button = styled('div')`
 	max-height: ${(props) => `${props.size}px`};
 `;
 const Text = styled.div`
-	height: 50%;
-	width: 50%;
+	height: 45%;
+	width: 45%;
 	bottom: 0;
 	right: 0;
 	position: absolute;
-	line-height: 100%;
+	/* line-height: 100%; */
 	background-color: white;
 	text-align: end;
 	${font};
@@ -77,13 +77,21 @@ const Container = ({
 	const release = () => {
 		setPressed(false);
 		setSaved(tmpPos.current);
+		// console.log(tmpPos.current);
 	};
 	const update = (evt) => {
 		const diffMouse = mousePos - evt.clientY;
 		const originalValue = saved - diffMouse;
-		const value =
+		let value =
 			originalValue < 0 ? Math.abs(originalValue) : -Math.abs(originalValue);
-		tmpPos.current = originalValue;
+		if (value <= angleMin) {
+			value = angleMin;
+		} else if (value >= angleMax) {
+			value = angleMax;
+		} else {
+			tmpPos.current = originalValue;
+		}
+		console.log(tmpPos.current, value);
 		lineRef.current.setAttribute('transform', 'rotate(' + value + ', 15, 15)');
 		!lazy && onChange(value);
 	};
@@ -98,7 +106,6 @@ const Container = ({
 				evt.persist();
 				setMousePos(evt.clientY);
 				setPressed(true);
-				console.log();
 			}}
 		>
 			<Label height={labelHeight}>{label}</Label>
