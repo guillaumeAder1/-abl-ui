@@ -77,20 +77,13 @@ const Container = ({
 	const release = () => {
 		setPressed(false);
 		setSaved(tmpPos.current);
-		console.log(saved, tmpPos.current);
 	};
 	const update = (evt) => {
 		const diffMouse = mousePos - evt.clientY;
 		let value = saved - diffMouse;
+		const originalValue = value;
 		value = value < 0 ? Math.abs(value) : -Math.abs(value);
-		console.log('prev', value);
-		if (value < 0) {
-			value = 360 - Math.abs(value);
-		} else if (value > 360) {
-			value = Math.abs(360 - value);
-		}
-		console.log(saved, diffMouse, value);
-		tmpPos.current = value < 0 ? Math.abs(value) : -Math.abs(value);
+		tmpPos.current = originalValue;
 		lineRef.current.setAttribute('transform', 'rotate(' + value + ', 15, 15)');
 		!lazy && onChange(value);
 	};
