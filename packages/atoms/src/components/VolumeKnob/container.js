@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import styled from '@emotion/styled';
 import PropTypes from 'prop-types';
 import Knob from './knob';
+import { calculateInitValue } from './utils';
 import { font } from 'style/vars';
 
 const GridContainer = styled('div')`
@@ -42,6 +43,8 @@ const Text = styled.div`
 const Container = ({
 	label,
 	value,
+	min,
+	max,
 	width,
 	height,
 	lazy,
@@ -72,6 +75,11 @@ const Container = ({
 
 	useEffect(() => {
 		// console.log('mounted');
+		const initVal = calculateInitValue(min, max, value, angleMin, angleMax);
+		lineRef.current.setAttribute(
+			'transform',
+			'rotate(' + initVal + ', 15, 15)'
+		);
 	}, []);
 
 	const release = () => {
@@ -119,6 +127,8 @@ const Container = ({
 Container.propTypes = {
 	width: PropTypes.number,
 	height: PropTypes.number,
+	min: PropTypes.number,
+	max: PropTypes.number,
 	value: PropTypes.number,
 	label: PropTypes.string,
 	onChange: PropTypes.func,
@@ -129,7 +139,9 @@ Container.propTypes = {
 Container.defaultProps = {
 	width: 60,
 	height: 50,
-	value: 50, // as a percentage
+	value: 50, //absolut value, val <= max && val >= min
+	min: 0,
+	max: 100,
 	label: 'Setting',
 	lazy: false,
 	angleMax: 270,
