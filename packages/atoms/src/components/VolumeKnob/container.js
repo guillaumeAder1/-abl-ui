@@ -80,9 +80,9 @@ const Container = ({
 	};
 	const update = (evt) => {
 		const diffMouse = mousePos - evt.clientY;
-		let value = saved - diffMouse;
-		const originalValue = value;
-		value = value < 0 ? Math.abs(value) : -Math.abs(value);
+		const originalValue = saved - diffMouse;
+		const value =
+			originalValue < 0 ? Math.abs(originalValue) : -Math.abs(originalValue);
 		tmpPos.current = originalValue;
 		lineRef.current.setAttribute('transform', 'rotate(' + value + ', 15, 15)');
 		!lazy && onChange(value);
