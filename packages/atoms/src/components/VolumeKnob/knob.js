@@ -26,17 +26,17 @@ class Knob extends React.PureComponent {
 					<Circle size={this.props.size} />
 					<g ref={this.props.forwardedRef}>
 						<line
-							x1="1.5"
-							y1="16"
-							x2="15"
-							y2="16"
+							x1="16"
+							y1="29"
+							x2="16"
+							y2="15"
 							strokeWidth="2"
 							stroke="red"
 							strokeLinecap="round"
 						></line>
 						<line
-							x1="2"
-							y1="15"
+							x1="15"
+							y1="29"
 							x2="15"
 							y2="15"
 							strokeWidth="2"
