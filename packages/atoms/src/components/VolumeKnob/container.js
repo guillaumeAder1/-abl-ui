@@ -119,7 +119,7 @@ const Container = ({
 			<Label height={labelHeight}>{label}</Label>
 			<Button size={circleSize}>
 				<Knob forwardedRef={lineRef} size={circleSize} />
-				<Text>{tmpPos.current}</Text>
+				{/* <Text>{tmpPos.current}</Text> */}
 			</Button>
 		</GridContainer>
 	);
