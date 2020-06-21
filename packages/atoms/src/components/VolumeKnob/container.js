@@ -74,22 +74,23 @@ const Container = ({
 	}, [isPressed]);
 
 	useEffect(() => {
-		// console.log('mounted');
+		// mounted
 		const initVal = calculateInitValue(min, max, value, angleMin, angleMax);
 		lineRef.current.setAttribute(
 			'transform',
 			'rotate(' + initVal + ', 15, 15)'
 		);
+		setSaved(-Math.abs(initVal));
 	}, []);
 
 	const release = () => {
 		setPressed(false);
 		setSaved(tmpPos.current);
-		// console.log(tmpPos.current);
 	};
 	const update = (evt) => {
 		const diffMouse = mousePos - evt.clientY;
 		const originalValue = saved - diffMouse;
+		console.warn(originalValue);
 		let value =
 			originalValue < 0 ? Math.abs(originalValue) : -Math.abs(originalValue);
 		if (value <= angleMin) {
