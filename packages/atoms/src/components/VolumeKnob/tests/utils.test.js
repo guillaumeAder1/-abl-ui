@@ -1,4 +1,4 @@
-import { calculateInitValue, convertDashArray } from '../utils';
+import { calculateInitValue, convertDashArray, angleToValue } from '../utils';
 
 test('calculate init value', () => {
 	expect(calculateInitValue(0, 100, 75, 0, 360)).toEqual(270);
@@ -7,5 +7,12 @@ test('calculate init value', () => {
 });
 
 test('convertDashArray', () => {
-	expect(convertDashArray());
+	// expect(convertDashArray(0, 100, 75, 0, 360)).toEqual(270);
+});
+
+test('angleToValue', () => {
+	expect(angleToValue(0, 100, 90, 0, 360)).toEqual(25);
+	expect(angleToValue(50, 100, 90, 0, 360)).toEqual(62.5);
+	expect(angleToValue(0, 100, 270, 0, 270)).toEqual(100);
+	expect(angleToValue(50, 100, 90, 0, 180)).toEqual(75);
 });

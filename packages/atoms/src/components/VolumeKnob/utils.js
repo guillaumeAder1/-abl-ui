@@ -1,4 +1,3 @@
-export const angleToValue = (angMin, angMax, value) => {};
 export const valueToAngle = (angMin, angMax, value) => {};
 /**
  * Calculate 360 degree angle values based on inputs
@@ -15,6 +14,14 @@ export const calculateInitValue = (min, max, value, angleMin, angleMax) => {
 	return (angleMax - angleMin) * valueInPercentage;
 };
 
-export const convertDashArray = (value, angleMin, angleMax) => {
-	return circlePercentage;
+export const convertDashArray = (min, max, value, angleMin, angleMax) => {
+	const valueInPercentage = (value - min) / (max - min);
+	const perc = (valueInPercentage / (angleMax - angleMin)) * 100;
+	const angleProp = (angleMax / 360) * 100;
+	return perc * angleProp;
+};
+
+export const angleToValue = (min, max, angleValue, angleMin, angleMax) => {
+	const temp = angleValue / (angleMax - angleMin);
+	return min + (max - min) * temp;
 };

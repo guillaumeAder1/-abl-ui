@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import styled from '@emotion/styled';
 import PropTypes from 'prop-types';
 import Knob from './knob';
-import { calculateInitValue, convertDashArray } from './utils';
+import { calculateInitValue, convertDashArray, angleToValue } from './utils';
 import { font } from 'style/vars';
 
 const GridContainer = styled('div')`
@@ -79,7 +79,10 @@ const Container = ({
 			'transform',
 			'rotate(' + initVal + ', 15, 15)'
 		);
-		circleRef.current.style.strokeDasharray = initVal;
+		// circleRef.current.style.strokeDasharray = initVal;
+		const convert = convertDashArray(min, max, initVal, angleMin, angleMax);
+		circleRef.current.style.strokeDasharray = 100 + convert;
+
 		setSaved(-initVal);
 	}, []);
 
@@ -99,9 +102,10 @@ const Container = ({
 			tmpPos.current = originalValue;
 		}
 		lineRef.current.setAttribute('transform', 'rotate(' + value + ', 15, 15)');
-		circleRef.current.style.strokeDasharray = value;
+		const realValue = angleToValue(min, max, value, angleMin, angleMax);
+		circleRef.current.style.strokeDasharray = 100 + realValue;
 
-		!lazy && onChange(value); // maybe use callback
+		!lazy && onChange({ value, realValue }); // maybe use callback
 	};
 	return (
 		<GridContainer
@@ -139,7 +143,7 @@ Container.propTypes = {
 Container.defaultProps = {
 	width: 60,
 	height: 50,
-	value: 70, //absolut value, val <= max && val >= min
+	value: 25, //absolut value, val <= max && val >= min
 	min: 0,
 	max: 100,
 	label: 'Setting',
