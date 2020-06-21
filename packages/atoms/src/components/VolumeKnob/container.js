@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import styled from '@emotion/styled';
 import PropTypes from 'prop-types';
 import Knob from './knob';
-import { calculateInitValue } from './utils';
+import { calculateInitValue, convertDashArray } from './utils';
 import { font } from 'style/vars';
 
 const GridContainer = styled('div')`
@@ -32,12 +32,9 @@ const Text = styled.div`
 	bottom: 0;
 	right: 0;
 	position: absolute;
-	/* line-height: 100%; */
-	background-color: white;
 	text-align: end;
 	${font};
 	font-size: 10px;
-	background-color: lightblue;
 `;
 
 const Container = ({
@@ -60,7 +57,9 @@ const Container = ({
 	const [saved, setSaved] = useState(0);
 	const tmpPos = useRef(0);
 	const containerRef = useRef(null);
-	let lineRef = useRef(null);
+	const lineRef = useRef(null);
+	const circleRef = useRef(null);
+
 	useEffect(() => {
 		if (isPressed) {
 			containerRef.current.focus();
@@ -68,7 +67,7 @@ const Container = ({
 			window.addEventListener('mouseup', release);
 			return () => {
 				window.removeEventListener('mousemove', update);
-				window.addEventListener('mouseup', release);
+				window.removeEventListener('mouseup', release);
 			};
 		}
 	}, [isPressed]);
@@ -80,7 +79,8 @@ const Container = ({
 			'transform',
 			'rotate(' + initVal + ', 15, 15)'
 		);
-		setSaved(-Math.abs(initVal));
+		circleRef.current.style.strokeDasharray = initVal;
+		setSaved(-initVal);
 	}, []);
 
 	const release = () => {
@@ -90,9 +90,7 @@ const Container = ({
 	const update = (evt) => {
 		const diffMouse = mousePos - evt.clientY;
 		const originalValue = saved - diffMouse;
-		console.warn(originalValue);
-		let value =
-			originalValue < 0 ? Math.abs(originalValue) : -Math.abs(originalValue);
+		let value = originalValue < 0 ? Math.abs(originalValue) : -originalValue;
 		if (value <= angleMin) {
 			value = angleMin;
 		} else if (value >= angleMax) {
@@ -100,9 +98,10 @@ const Container = ({
 		} else {
 			tmpPos.current = originalValue;
 		}
-		console.log(tmpPos.current, value);
 		lineRef.current.setAttribute('transform', 'rotate(' + value + ', 15, 15)');
-		!lazy && onChange(value);
+		circleRef.current.style.strokeDasharray = value;
+
+		!lazy && onChange(value); // maybe use callback
 	};
 	return (
 		<GridContainer
@@ -119,8 +118,8 @@ const Container = ({
 		>
 			<Label height={labelHeight}>{label}</Label>
 			<Button size={circleSize}>
-				<Knob forwardedRef={lineRef} size={circleSize} />
-				{/* <Text>{tmpPos.current}</Text> */}
+				<Knob forwardedRef={lineRef} circleRef={circleRef} size={circleSize} />
+				<Text>{tmpPos.current}</Text>
 			</Button>
 		</GridContainer>
 	);
@@ -140,7 +139,7 @@ Container.propTypes = {
 Container.defaultProps = {
 	width: 60,
 	height: 50,
-	value: 50, //absolut value, val <= max && val >= min
+	value: 70, //absolut value, val <= max && val >= min
 	min: 0,
 	max: 100,
 	label: 'Setting',
