@@ -147,7 +147,7 @@ Container.propTypes = {
 	lazy: PropTypes.bool,
 };
 Container.defaultProps = {
-	width: 120,
+	width: 60,
 	height: 70,
 	value: 25, //absolut value, val <= max && val >= min
 	min: 0,
