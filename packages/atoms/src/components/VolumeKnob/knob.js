@@ -33,10 +33,7 @@ class Knob extends React.PureComponent {
 		super(props);
 		this.rad = props.size / 2;
 		this.rotation = `rotate(90, ${this.rad}, ${this.rad})`;
-	}
-	calcAngle() {
-		const t = (this.props.maxAngle / 360) * 100;
-		return 100 - t;
+		this.calcAngle = 100 - (this.props.maxAngle / 360) * 100;
 	}
 	render() {
 		return (
@@ -52,7 +49,7 @@ class Knob extends React.PureComponent {
 					</g>
 					<g>
 						<BgCircle
-							angle={this.calcAngle()}
+							angle={this.calcAngle}
 							pathLength="100"
 							size={this.props.size}
 						/>
