@@ -79,10 +79,8 @@ const Container = ({
 			'transform',
 			'rotate(' + initVal + ', 15, 15)'
 		);
-		// circleRef.current.style.strokeDasharray = initVal;
 		const convert = convertDashArray(min, max, initVal, angleMin, angleMax);
 		circleRef.current.style.strokeDasharray = 100 + convert;
-
 		setSaved(-initVal);
 	}, []);
 
