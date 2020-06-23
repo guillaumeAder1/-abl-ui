@@ -10,7 +10,7 @@ test('convertDashArray', () => {
 	// expect(convertDashArray(0, 100, 75, 0, 360)).toEqual(270);
 });
 
-test('angleToValue', () => {
+test('angleToValue for strokeArray', () => {
 	expect(angleToValue(0, 100, 90, 0, 360)).toEqual(25);
 	expect(angleToValue(50, 100, 90, 0, 360)).toEqual(62.5);
 	expect(angleToValue(0, 100, 270, 0, 270)).toEqual(75);
