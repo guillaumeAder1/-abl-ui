@@ -120,7 +120,12 @@ const Container = ({
 		>
 			<Label height={labelHeight}>{label}</Label>
 			<Button size={circleSize}>
-				<Knob forwardedRef={lineRef} circleRef={circleRef} size={circleSize} />
+				<Knob
+					maxAngle={angleMax}
+					forwardedRef={lineRef}
+					circleRef={circleRef}
+					size={circleSize}
+				/>
 				<Text>{tmpPos.current}</Text>
 			</Button>
 		</GridContainer>
