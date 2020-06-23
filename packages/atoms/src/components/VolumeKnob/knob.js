@@ -31,6 +31,8 @@ const ValueCircle = styled('circle')`
 class Knob extends React.PureComponent {
 	constructor(props) {
 		super(props);
+		this.rad = props.size / 2;
+		this.rotation = `rotate(90, ${this.rad}, ${this.rad})`;
 	}
 	calcAngle() {
 		const t = (this.props.maxAngle / 360) * 100;
@@ -43,7 +45,7 @@ class Knob extends React.PureComponent {
 					<g>
 						<ValueCircle
 							ref={this.props.circleRef}
-							transform="rotate(90, 15, 15)"
+							transform={this.rotation}
 							pathLength="100"
 							size={this.props.size}
 						/>
@@ -58,19 +60,19 @@ class Knob extends React.PureComponent {
 					{/* <Circle size={this.props.size} /> */}
 					<g ref={this.props.forwardedRef}>
 						<line
-							x1="16"
-							y1="29"
-							x2="16"
-							y2="15"
+							x1={this.rad + 1}
+							y1={this.rad * 2 - 1}
+							x2={this.rad + 1}
+							y2={this.rad}
 							strokeWidth="2"
 							stroke="red"
 							strokeLinecap="round"
 						></line>
 						<line
-							x1="15"
-							y1="29"
-							x2="15"
-							y2="15"
+							x1={this.rad}
+							y1={this.rad * 2 - 1}
+							x2={this.rad}
+							y2={this.rad}
 							strokeWidth="2"
 							stroke="black"
 							strokeLinecap="round"

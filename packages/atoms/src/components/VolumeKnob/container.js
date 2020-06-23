@@ -77,7 +77,7 @@ const Container = ({
 		const initVal = calculateInitValue(min, max, value, angleMin, angleMax);
 		lineRef.current.setAttribute(
 			'transform',
-			'rotate(' + initVal + ', 15, 15)'
+			`rotate(${initVal}, ${circleSize / 2}, ${circleSize / 2})`
 		);
 		const convert = convertDashArray(min, max, initVal, angleMin, angleMax);
 		circleRef.current.style.strokeDasharray = 100 + convert;
@@ -99,7 +99,10 @@ const Container = ({
 		} else {
 			tmpPos.current = originalValue;
 		}
-		lineRef.current.setAttribute('transform', 'rotate(' + value + ', 15, 15)');
+		lineRef.current.setAttribute(
+			'transform',
+			`rotate(${value}, ${circleSize / 2}, ${circleSize / 2})`
+		);
 		const realValue = angleToValue(min, max, value, angleMin, angleMax);
 		circleRef.current.style.strokeDasharray = 100 + realValue;
 
@@ -144,8 +147,8 @@ Container.propTypes = {
 	lazy: PropTypes.bool,
 };
 Container.defaultProps = {
-	width: 60,
-	height: 50,
+	width: 120,
+	height: 70,
 	value: 25, //absolut value, val <= max && val >= min
 	min: 0,
 	max: 100,
