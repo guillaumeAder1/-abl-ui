@@ -7,7 +7,7 @@ describe('Volume Knob Container', () => {
 		render(<Container />);
 		screen.getByRole('slider');
 		screen.getByText(/setting/i);
-		expect(screen.findByText('setting')).toBeInTheDocument();
+		expect(screen.getByText(/setting/i)).toBeInTheDocument();
 		screen.debug();
 	});
 });
