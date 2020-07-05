@@ -2,7 +2,12 @@ import React, { useState, useEffect, useRef } from 'react';
 import styled from '@emotion/styled';
 import PropTypes from 'prop-types';
 import Knob from './knob';
-import { calculateInitValue, convertDashArray, angleToValue } from './utils';
+import {
+	calculateInitValue,
+	valueToAbsolute,
+	convertDashArray,
+	angleToValue,
+} from './utils';
 import { font } from 'style/vars';
 
 const GridContainer = styled('div')`
@@ -52,6 +57,7 @@ const Container = ({
 }) => {
 	const labelHeight = height / 4.5;
 	const circleSize = width / 2;
+	const [curValue, setCurvalue] = useState(0);
 	const [mousePos, setMousePos] = useState(0);
 	const [isPressed, setPressed] = useState(false);
 	const [saved, setSaved] = useState(0);
@@ -82,7 +88,9 @@ const Container = ({
 		const convert = convertDashArray(min, max, initVal, angleMin, angleMax);
 		circleRef.current.style.strokeDasharray = 100 + convert;
 		setSaved(-initVal);
+		setCurvalue(valueToAbsolute(initVal, min, max, angleMin, angleMax));
 	}, []);
+	useEffect(() => {}, [tmpPos.current]);
 
 	const release = () => {
 		setPressed(false);
@@ -105,6 +113,8 @@ const Container = ({
 		);
 		const realValue = angleToValue(min, max, value, angleMin, angleMax);
 		circleRef.current.style.strokeDasharray = 100 + realValue;
+		console.warn(realValue);
+		setCurvalue(valueToAbsolute(value, min, max, angleMin, angleMax));
 
 		!lazy && onChange({ value, realValue }); // maybe use callback
 	};
@@ -129,7 +139,7 @@ const Container = ({
 					circleRef={circleRef}
 					size={circleSize}
 				/>
-				<Text>{tmpPos.current}</Text>
+				<Text>{curValue}</Text>
 			</Button>
 		</GridContainer>
 	);
@@ -149,7 +159,7 @@ Container.propTypes = {
 Container.defaultProps = {
 	width: 60,
 	height: 70,
-	value: 25, //absolut value, val <= max && val >= min
+	value: 33, //absolut value, val <= max && val >= min
 	min: 0,
 	max: 100,
 	label: 'Setting',

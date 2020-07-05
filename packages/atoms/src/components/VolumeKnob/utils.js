@@ -35,3 +35,9 @@ export const angleToValue = (min, max, angleValue, angleMin, angleMax) => {
 	const res = min + (max - min) * temp;
 	return res * (angleMax / 360);
 };
+
+export const valueToAbsolute = (angleValue, min, max, angleMin, angleMax) => {
+	const percAngle = (angleValue / (angleMax - angleMin)) * 100;
+	const percValue = percAngle / (max - min);
+	return Math.floor(percValue * 100);
+};
