@@ -23,6 +23,7 @@ test('angleToValue for strokeArray', () => {
 });
 
 test('valueToAbsolute', () => {
+	expect(valueToAbsolute(90, 0, 50, 0, 270)).toEqual(66);
 	expect(valueToAbsolute(90, 0, 100, 0, 270)).toEqual(33);
 	expect(valueToAbsolute(90, 0, 100, 0, 360)).toEqual(25);
 	expect(valueToAbsolute(90, 0, 100, 180, 360)).toEqual(50);
