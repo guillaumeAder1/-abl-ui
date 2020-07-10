@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useDragAndDrop } from '../VolumeSlider/useDragAndDrop';
 import styled from '@emotion/styled';
 import PropTypes from 'prop-types';
 import Knob from './knob';
@@ -65,7 +66,7 @@ const Container = ({
 	const containerRef = useRef(null);
 	const lineRef = useRef(null);
 	const circleRef = useRef(null);
-
+	// useDragAndDrop(isPressed, update, release);
 	useEffect(() => {
 		if (isPressed) {
 			containerRef.current.focus();
