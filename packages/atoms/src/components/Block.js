@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from './button';
-import Select from './Select';
+import Select from './select';
 import { Slider } from './VolumeSlider';
 import styled from '@emotion/styled';
 import { baseBlock } from 'style/vars';
