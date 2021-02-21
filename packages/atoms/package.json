@@ -1,49 +1,57 @@
 {
-  "name": "@abl/atoms",
-  "version": "0.0.0",
-  "main": "lib/index.js",
-  "license": "MIT",
-  "scripts": {
-    "dev": "start-storybook -p 6006",
-    "test": "jest",
-    "lint": "eslint . --ext .js",
-    "build-storybook": "build-storybook",
-    "build": "rollup -c"
-  },
-  "dependencies": {
-    "@emotion/core": "^10.0.28",
-    "@emotion/styled": "^10.0.27",
-    "emotion-theming": "^10.0.27",
-    "prop-types": "^15.7.2",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1"
-  },
-  "peerDependencies": {
-    "@emotion/core": "10.x",
-    "@emotion/styled": "10.x",
-    "emotion-theming": "10.x",
-    "react": "^16.x",
-    "react-dom": "^16.x"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.9.6",
-    "@babel/preset-env": "^7.9.6",
-    "@babel/preset-react": "^7.9.4",
-    "@storybook/addon-actions": "^5.3.18",
-    "@storybook/addon-links": "^5.3.18",
-    "@storybook/addons": "^5.3.18",
-    "@storybook/react": "^5.3.18",
-    "@testing-library/react": "^10.0.4",
-    "babel-loader": "^8.1.0",
-    "babel-plugin-emotion": "^10.0.33",
-    "babel-plugin-module-resolver": "^4.0.0",
-    "eslint": "^7.0.0",
-    "eslint-plugin-react": "^7.19.0",
-    "jest": "^26.0.1",
-    "rollup": "^2.9.1",
-    "rollup-plugin-babel": "^4.4.0",
-    "rollup-plugin-commonjs": "^10.1.0",
-    "rollup-plugin-node-resolve": "^5.2.0",
-    "rollup-plugin-peer-deps-external": "^2.2.2"
-  }
+	"name": "@abl/atoms",
+	"version": "0.0.0",
+	"main": "lib/index.js",
+	"module": "lib/index.esm.js",
+	"browser": "lib/index.umd.js",
+	"license": "MIT",
+	"libName": "AblAtome",
+	"scripts": {
+		"dev": "start-storybook -p 6006",
+		"test": "jest",
+		"lint": "eslint . --ext .js",
+		"build-storybook": "build-storybook",
+		"prebuild": "rm -rf lib/",
+		"build": "rollup -c",
+		"build:prod": "rollup -c --environment BUILD:production"
+	},
+	"dependencies": {
+		"@emotion/core": "^10.0.28",
+		"@emotion/styled": "^10.0.27",
+		"emotion-theming": "^10.0.27",
+		"prop-types": "^15.7.2",
+		"react": "^16.13.1",
+		"react-dom": "^16.13.1"
+	},
+	"peerDependencies": {
+		"@emotion/core": "^10.0.28",
+		"@emotion/styled": "^10.0.27",
+		"emotion-theming": "^10.0.27",
+		"react": "^16.13.1",
+		"react-dom": "^16.13.1",
+		"prop-types": "^15.7.2"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.9.6",
+		"@babel/preset-env": "^7.9.6",
+		"@babel/preset-react": "^7.9.4",
+		"@storybook/addon-actions": "^5.3.18",
+		"@storybook/addon-links": "^5.3.18",
+		"@storybook/addons": "^5.3.18",
+		"@storybook/react": "^5.3.18",
+		"@testing-library/react": "^10.0.4",
+		"babel-loader": "^8.1.0",
+		"babel-plugin-emotion": "^10.0.33",
+		"babel-plugin-module-resolver": "^4.0.0",
+		"eslint": "^7.0.0",
+		"eslint-plugin-react": "^7.19.0",
+		"eslint-plugin-react-hooks": "^4.0.4",
+		"jest": "^26.0.1",
+		"rollup": "^2.9.1",
+		"rollup-plugin-babel": "^4.4.0",
+		"rollup-plugin-commonjs": "^10.1.0",
+		"rollup-plugin-node-resolve": "^5.2.0",
+		"rollup-plugin-peer-deps-external": "^2.2.2",
+		"rollup-plugin-terser": "^6.1.0"
+	}
 }

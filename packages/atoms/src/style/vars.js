@@ -14,7 +14,6 @@ const gray = {
 	_900: '#10132D',
 };
 
-
 export const theme = {
 	primary: {
 		light: orange._300,
@@ -24,20 +23,21 @@ export const theme = {
 	bg: {
 		light: gray._200,
 		main: gray._500,
-		dark: gray._600,		
+		dark: gray._600,
 	},
 	font: {
 		main: gray._800,
 	},
 	border: {
 		main: gray._900,
-	}
+	},
 };
 
 export const font = css`
 	font-family: helvetica, arial;
 	font-size: 12px;
 	color: ${theme.font.main};
+	user-select: none;
 `;
 
 export const baseBlock = css`

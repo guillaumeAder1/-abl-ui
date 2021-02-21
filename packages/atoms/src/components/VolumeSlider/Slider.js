@@ -1,7 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Pointer from './Pointer';
-import { POINTER_HEIGHT, SLIDER_HEIGHT, pixelToValue } from './utils';
+import {
+	POINTER_HEIGHT,
+	SLIDER_HEIGHT,
+	pixelToValue,
+	valueToPixel,
+	buildTicks,
+} from './utils';
 
 const style = `
 	.slider {
@@ -11,15 +17,16 @@ const style = `
 		width: 40px;
 		margin: auto;
 		justify-content: space-between;
-		padding: 2px;
 	}
 	.slider:focus {
 		outline: 1px dashed black;
+		padding: 0 5px;
 	}
 	.section {
 		flex: 1 1 35%;
 		display: flex;
 		justify-content: space-between;
+		margin: ${POINTER_HEIGHT / 2}px 0; 
 	}
 	.bar{
 		height: 100%;
@@ -27,14 +34,14 @@ const style = `
 		background-color: black;
 	}
 	.scale{
-		height: 100%;
 		width: 5px;
 		display: flex;
 		justify-content: space-between;
 		flex-direction: column;
+		margin: ${POINTER_HEIGHT / 2}px 0; 
 	}
 	.tick {
-		margin: 2px;
+		margin-left: 2px;
 		height: 1px;
 		background: black;
 	}
@@ -53,14 +60,26 @@ const style = `
 	}
 `;
 
-const Slider = ({ min, max, value, nbrTick, measures, onChange, ...props }) => {
-	const ticks = new Array(nbrTick).fill().map((el, i) => {
-		const type = i % 3 === 0 ? 'long' : 'short';
-		return <div key={i} className={`tick ${type}`}></div>;
-	});
+const Slider = ({
+	min,
+	max,
+	value,
+	nbrTick,
+	measures,
+	onChange,
+	lazy,
+	...props
+}) => {
+	const ticks = ((nbr) =>
+		buildTicks(nbr).map((el, i) => (
+			<div key={i} className={`tick ${el}`}></div>
+		)))(nbrTick);
+
 	const measuresList = measures.map((el, i) => <div key={i}>{el}</div>);
 
-	const [pointerVal, setPointerVal] = useState(0);
+	const [pointerVal, setPointerVal] = useState(
+		valueToPixel(value, SLIDER_HEIGHT - POINTER_HEIGHT, max)
+	);
 	const [isPressed, setIsPressed] = useState(false);
 	const [sliderValue, setSliderValue] = useState(value);
 
@@ -73,7 +92,9 @@ const Slider = ({ min, max, value, nbrTick, measures, onChange, ...props }) => {
 		}
 	};
 	useEffect(() => {
-		const value = pixelToValue(pointerVal, SLIDER_HEIGHT, max);
+		let value = pixelToValue(pointerVal, SLIDER_HEIGHT - POINTER_HEIGHT, max);
+		if (value < min) value = min;
+		if (value > max) value = max;
 		setSliderValue(value);
 	}, [pointerVal]);
 
@@ -91,6 +112,13 @@ const Slider = ({ min, max, value, nbrTick, measures, onChange, ...props }) => {
 				onMouseMove={(evt) => {
 					evt.persist();
 					updateCusor(evt);
+					onChange && isPressed && !lazy && onChange(`${sliderValue}`);
+				}}
+				onMouseLeave={() => {
+					if (isPressed) {
+						setIsPressed(false);
+						onChange && onChange(sliderValue);
+					}
 				}}
 				role="slider"
 				tabIndex="0"
@@ -120,7 +148,9 @@ Slider.propTypes = {
 	max: PropTypes.number,
 	value: PropTypes.number,
 	nbrTick: PropTypes.number,
-	measures: PropTypes.array,
+	onChange: PropTypes.func, // callback function returning slider value
+	measures: PropTypes.array, // values list displayed on the slider
+	lazy: PropTypes.bool, // if true, trigger onChange hanlder only when mouse release OR leaves
 };
 Slider.defaultProps = {
 	min: 0,
@@ -128,6 +158,8 @@ Slider.defaultProps = {
 	value: 90,
 	nbrTick: 5,
 	measures: [100, 0],
+	lazy: undefined,
+	onChange: () => {},
 };
 
 export default Slider;

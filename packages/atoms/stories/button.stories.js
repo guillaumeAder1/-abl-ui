@@ -1,6 +1,6 @@
 import React from 'react';
-import Button from 'components/Button';
-import Select from 'components/Select';
+import Button from 'components/button';
+import Select from 'components/select';
 
 export default {
 	title: '@abl/Basic components',

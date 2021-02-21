@@ -5,4 +5,6 @@ dist
 .out
 .cache-loader
 
-
+jest.config.js
+build/
+dist/

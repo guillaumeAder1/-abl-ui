@@ -1,6 +1,6 @@
 import React from 'react';
-import Button from './Button';
-import Select from './Select';
+import Button from './button';
+import Select from './select';
 import { Slider } from './VolumeSlider';
 import styled from '@emotion/styled';
 import { baseBlock } from 'style/vars';
@@ -28,6 +28,7 @@ const ButtonSelect = () => (
 			max={100}
 			value={75}
 			nbrTick={15}
+			lazy
 			measures={[0, 50, 100]}
 			onChange={(val) => console.log(val)}
 		/>

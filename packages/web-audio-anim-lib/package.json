@@ -1,0 +1,70 @@
+{
+  "name": "visual-web-audio-api",
+  "version": "0.0.0",
+  "description": "Stream audio data",
+  "libname": "libname",
+  "main": "dist/lib/bundle.cjs.js",
+  "module": "dist/lib/bundle.esm.js",
+  "browser": "dist/lib/bundle.umd.js",
+  "sideEffects": false,
+  "scripts": {
+    "lint": "eslint 'src/'",
+    "lint:fix": "prettier-eslint 'src/**/*.js' --write",
+    "test": "jest",
+		"test:dev": "jest --watchAll",
+    "test:push": "jest",
+    "prebuild": "rm -rf dist/lib/",
+    "build": "rollup -c",
+    "serve": "node scripts/server.js",
+    "dev": "npm run build & npm run serve",
+    "reload": "./node_modules/.bin/livereload 'public/'"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint",
+      "pre-push": "npm run test:push && npm run lint"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/guillaumeAder1/visual-web-audio-api.git"
+  },
+  "keywords": [
+    "web",
+    "audio",
+    "api",
+    "js"
+  ],
+  "author": "guillaume.ader",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/guillaumeAder1/visual-web-audio-api/issues"
+  },
+  "homepage": "https://github.com/guillaumeAder1/visual-web-audio-api#readme",
+  "dependencies": {
+    "lodash-es": "^4.17.15"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.7.4",
+    "@babel/preset-env": "^7.7.4",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@types/jest": "^24.0.23",
+    "eslint": "^6.7.2",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.19.1",
+    "eslint-plugin-jest": "^23.1.1",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "husky": "^3.1.0",
+    "jest": "^24.9.0",
+    "live-server": "^1.2.1",
+    "prettier-eslint": "^9.0.1",
+    "prettier-eslint-cli": "^5.0.0",
+    "rollup": "^1.27.5",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-watch": "^4.3.1"
+  }
+}

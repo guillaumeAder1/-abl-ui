@@ -1,11 +1,16 @@
+// eslint-disable-next-line no-undef
 module.exports = {
-	// eslint-disable-line no-undef
 	env: {
 		browser: true,
 		es6: true,
 		jest: true,
 	},
-	extends: ['eslint:recommended', 'plugin:react/recommended'],
+	extends: [
+		'eslint:recommended',
+		'plugin:react/recommended',
+		'prettier',
+		'plugin:react-hooks/recommended',
+	],
 	globals: {
 		Atomics: 'readonly',
 		SharedArrayBuffer: 'readonly',
@@ -17,7 +22,7 @@ module.exports = {
 		ecmaVersion: 2018,
 		sourceType: 'module',
 	},
-	plugins: ['react'],
+	plugins: ['react', 'prettier'],
 	rules: {
 		indent: ['error', 'tab'],
 		'linebreak-style': ['error', 'unix'],
