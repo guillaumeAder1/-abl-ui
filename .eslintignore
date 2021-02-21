@@ -6,3 +6,5 @@ dist
 .cache-loader
 
 jest.config.js
+build/
+dist/
